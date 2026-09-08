@@ -24659,11 +24659,12 @@ html.dark .home-page .hero-buttons .button-secondary {
 
 /* =========================================================
    HOME — DARK MODE TOP SPACING MATCH LIGHT MODE
-   ========================================================= */
+  
 
+/* HOME — DARK MODE TOP SPACING MATCH LIGHT MODE */
 @media (min-width: 901px) {
-  html.dark .home-page .hero {
-    padding-top: 70px !important;
+  html.dark .home-page {
+    padding-top: 90px !important;
+    box-sizing: border-box !important;
   }
 }
-
