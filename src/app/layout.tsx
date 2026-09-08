@@ -16,6 +16,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Abyannz.",
   description: "Muhammad Abyan Sudjatmiko — Web Developer",
+
+  openGraph: {
+    title: "Abyannz.",
+    description: "Muhammad Abyan Sudjatmiko — Web Developer",
+    url: "https://portfolio-abyanzz.vercel.app",
+    siteName: "Abyannz.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Abyannz. — Web Developer",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
