@@ -25552,3 +25552,399 @@ html.dark .not-found-project-button:hover {
 .not-found-button-primary:hover {
   background: #dddddd;
 }
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  width: 100%;
+  position: relative;
+  background: #f8f8f6;
+  border-top: 1px solid #dfe5e8;
+
+  /* penting: jangan transparan */
+  opacity: 1;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  padding: 28px 5% 22px;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+/* DARK MODE */
+html.dark .footer {
+  background: #111315;
+  border-top-color: #292d30;
+  color: #f5f5f5;
+  opacity: 1;
+}
+
+/* isi utama footer */
+.footer-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-brand h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.footer-brand p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #777;
+}
+
+html.dark .footer-brand p {
+  color: #999;
+}
+
+/* link */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: #555;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #42b8eb;
+}
+
+html.dark .footer-links a {
+  color: #aaa;
+}
+
+html.dark .footer-links a:hover {
+  color: #42b8eb;
+}
+
+/* social/contact */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-social a {
+  color: #555;
+  text-decoration: none;
+  font-size: 11px;
+  transition: color 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: #42b8eb;
+}
+
+html.dark .footer-social a {
+  color: #aaa;
+}
+
+html.dark .footer-social a:hover {
+  color: #42b8eb;
+}
+
+/* garis bawah */
+.footer-bottom {
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto 0;
+  padding-top: 12px;
+
+  border-top: 1px solid #e1e5e7;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+html.dark .footer-bottom {
+  border-top-color: #292d30;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .footer {
+    padding: 24px 20px 18px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 14px 20px;
+  }
+
+  .footer-social {
+    gap: 16px;
+  }
+
+  .footer-bottom {
+    margin-top: 18px;
+    padding-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
+
+/* =========================
+   SOLID FOOTER
+   ========================= */
+
+.footer {
+  background: #f8f8f6 !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Dark Mode */
+html.dark .footer {
+  background: #111315 !important;
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   FOOTER — SOLID BACKGROUND
+   ========================================================= */
+
+.site-footer,
+.about-footer,
+.projects-footer,
+.journey-footer {
+  position: relative;
+  z-index: 20;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.dark .site-footer,
+html.dark .about-footer,
+html.dark .projects-footer,
+html.dark .journey-footer {
+  background-color: #111111 !important;
+  background-image: none !important;
+  opacity: 1 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* =========================================================
+   ABYANNZ — UNIFIED FOOTER
+   Semua halaman menggunakan footer yang sama
+   ========================================================= */
+
+.site-footer {
+  width: 100%;
+  position: relative;
+  z-index: 50;
+
+  box-sizing: border-box;
+
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+
+  border-top: 1px solid #e2e2df !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  padding: 0 5vw !important;
+  margin: 0 !important;
+}
+
+/* Isi footer */
+.site-footer .footer-bottom {
+  width: 100%;
+  max-width: none !important;
+
+  min-height: 58px;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: none !important;
+
+  color: #777777;
+  box-sizing: border-box;
+}
+
+/* Identitas */
+.site-footer .footer-identity {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.site-footer .footer-identity strong {
+  color: #111111 !important;
+  font-weight: 700;
+}
+
+.site-footer .footer-identity span {
+  color: #777777 !important;
+}
+
+.site-footer .footer-dot {
+  color: #42b8eb !important;
+  margin: 0 !important;
+}
+
+/* Copyright */
+.site-footer .footer-copyright {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  line-height: 1.4;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: #777777 !important;
+
+  text-align: right;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark .site-footer {
+  background-color: #111111 !important;
+  background-image: none !important;
+
+  border-top-color: #2a2a2a !important;
+
+  color: #888888 !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.dark .site-footer .footer-bottom {
+  background-color: #111111 !important;
+  color: #888888 !important;
+}
+
+html.dark .site-footer .footer-identity strong {
+  color: #f5f5f5 !important;
+}
+
+html.dark .site-footer .footer-identity span {
+  color: #888888 !important;
+}
+
+html.dark .site-footer .footer-dot {
+  color: #42b8eb !important;
+}
+
+html.dark .site-footer .footer-copyright {
+  color: #888888 !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 0 20px !important;
+  }
+
+  .site-footer .footer-bottom {
+    min-height: 64px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 7px;
+  }
+
+  .site-footer .footer-identity {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    font-size: 7px;
+  }
+
+  .site-footer .footer-copyright {
+    font-size: 6px;
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   ABOUT — HILANGKAN GAP SEBELUM FOOTER
+   ========================================================= */
+
+.about-page,
+.about-page-wrapper {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.about-page .about-marquee {
+  margin-bottom: 0 !important;
+}
+
+.about-page .about-marquee ~ .site-footer,
+.about-page-wrapper .site-footer {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}

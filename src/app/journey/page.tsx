@@ -14,12 +14,7 @@ export default function Journey() {
         <div className="journey-heading-row">
 
           <div>
-            <div className="journey-label">
-              <span>03</span>
-              <i></i>
-              MY JOURNEY
-            </div>
-
+          
             <h1>
               My journey
               <br />
@@ -525,12 +520,6 @@ export default function Journey() {
 
 
         <div className="journey-page-number">
-
-          <span>04</span>
-
-          <span>/ 04</span>
-
-          <i></i>
 
         </div>
 

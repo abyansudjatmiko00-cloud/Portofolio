@@ -12,11 +12,6 @@ export default function Projects() {
       <section className="projects-content">
         {/* TOP LABEL */}
         <div className="projects-top">
-          <div className="projects-section-label">
-            <span>03</span>
-            <i></i>
-            SELECTED WORK
-          </div>
 
           <div className="projects-archive">
             ARCHIVE — 2024 / 2026
@@ -125,16 +120,7 @@ export default function Projects() {
         {/* BOTTOM NAVIGATION */}
         <div className="projects-navigation">
           <div className="projects-progress">
-            <strong>03</strong>
-
-            <span>/</span>
-
-            <span>04</span>
-
-            <div className="progress-line">
-              <i></i>
-            </div>
-
+            
             <small>
               PROJECT ARCHIVE • SELECTED WORKS
             </small>
