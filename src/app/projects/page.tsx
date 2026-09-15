@@ -1,26 +1,17 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { proyek } from "@/data/proyek";
 
 export default function Projects() {
   return (
     <main className="projects-page">
-
-      {/* =========================
-          NAVIGATION
-      ========================= */}
-
+      {/* NAVIGATION */}
       <Navbar />
 
-
-      {/* =========================
-          03 — SELECTED WORK
-      ========================= */}
-
+      {/* SELECTED WORK */}
       <section className="projects-content">
-
         {/* TOP LABEL */}
-
         <div className="projects-top">
-
           <div className="projects-section-label">
             <span>03</span>
             <i></i>
@@ -32,18 +23,11 @@ export default function Projects() {
             <span>•</span>
             <strong>DISCIPLINE: INTERACTIVE & DIGITAL</strong>
           </div>
-
         </div>
 
-
-        {/* =========================
-            INTRO
-        ========================= */}
-
+        {/* INTRO */}
         <div className="projects-intro">
-
           <div className="projects-heading">
-
             <h1>
               My Recent
               <br />
@@ -63,188 +47,84 @@ export default function Projects() {
               VIEW ALL PROJECTS
               <span>↓</span>
             </a>
-
           </div>
 
-
           <div className="curatorial-note">
-
             <span>CURATORIAL NOTE</span>
 
             <p>
-              A collection of projects I have worked on during my learning journey and while developing skills in web
+              A collection of projects I have worked on during my
+              learning journey and while developing skills in web
               development, UI/UX, and modern technologies.
             </p>
-
           </div>
-
         </div>
 
-
-        {/* =========================
-            PROJECT LIST
-        ========================= */}
-
+        {/* PROJECT LIST */}
         <div
           className="projects-grid"
           id="project-list"
         >
+          {proyek.map((project, index) => (
+            <article
+              className="project-item"
+              key={project.id}
+            >
+              {/* IMAGE */}
+              <div className="project-image">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                />
 
-          {/* =========================
-              PROJECT 01 — SIMMAG
-          ========================= */}
-
-          <article className="project-item">
-
-            <div className="project-image">
-
-              <img
-                src="/images/projects/webmagang.png"
-                alt="SIMMAG Project"
-              />
-
-              <span className="project-image-label">
-                PROD // 2026
-              </span>
-
-            </div>
-
-
-            <div className="project-info">
-
-              <div className="project-meta">
-
-                <span>01</span>
-
-                <small>
-                  WEB APPLICATION
-                </small>
-
+                <span className="project-image-label">
+                  {project.category.toUpperCase()} // 2026
+                </span>
               </div>
 
+              {/* INFORMATION */}
+              <div className="project-info">
+                <div className="project-meta">
+                  <span>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-              <h2>
-                SIMMAG
-              </h2>
-
-
-              <p>
-                Student Internship Management Information System
-                designed to assist schools, supervising teachers,
-                and students in managing internship activities
-                more easily and in a structured manner.
-              </p>
-
-
-              <div className="project-bottom">
-
-                <div className="project-tech">
-
-                  <span>Next.js</span>
-                  <span>Supabase</span>
-                  <span>TypeScript</span>
-                  <span>Tailwind CSS</span>
-
+                  <small>
+                    {project.category.toUpperCase()}
+                  </small>
                 </div>
 
+                <h2>{project.title}</h2>
 
-                <a
-                  href="https://simmag-byn.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  VIEW PROJECT
-                  <span>↗</span>
-                </a>
+                <p>{project.description}</p>
 
-              </div>
+                <div className="project-bottom">
+                  {/* TECHNOLOGIES */}
+                  <div className="project-tech">
+                    {project.technologies.map((technology) => (
+                      <span key={technology}>
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
 
-            </div>
-
-          </article>
-
-
-          {/* =========================
-              PROJECT 02 — PORTFOLIO
-          ========================= */}
-
-          <article className="project-item">
-
-            <div className="project-image">
-
-              <img
-                src="/images/projects/webportofolio.png"
-                alt="Personal Portfolio"
-              />
-
-              <span className="project-image-label">
-                PORTFOLIO
-              </span>
-
-            </div>
-
-
-            <div className="project-info">
-
-              <div className="project-meta">
-
-                <span>02</span>
-
-                <small>
-                  WEB DEVELOPMENT
-                </small>
-
-              </div>
-
-
-              <h2>
-                Personal Portfolio
-              </h2>
-
-
-              <p>
-                  Website portfolio pribadi untuk memperkenalkan
-                  identitas, kemampuan, pengalaman, dan berbagai
-                  project yang pernah saya kerjakan.
-              </p>
-
-
-              <div className="project-bottom">
-
-                <div className="project-tech">
-
-                  <span>Next.js</span>
-                  <span>Tailwind CSS</span>
-
+                  {/* DYNAMIC ROUTING */}
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="project-link"
+                  >
+                    VIEW PROJECT
+                    <span>↗</span>
+                  </Link>
                 </div>
-
-
-                <a
-                  href="/"
-                  className="project-link"
-                >
-                  VIEW PROJECT
-                  <span>↗</span>
-                </a>
-
               </div>
-
-            </div>
-
-          </article>
-
+            </article>
+          ))}
         </div>
 
-
-        {/* =========================
-            BOTTOM NAVIGATION
-        ========================= */}
-
+        {/* BOTTOM NAVIGATION */}
         <div className="projects-navigation">
-
           <div className="projects-progress">
-
             <strong>03</strong>
 
             <span>/</span>
@@ -258,22 +138,13 @@ export default function Projects() {
             <small>
               PROJECT ARCHIVE • SELECTED WORKS
             </small>
-
           </div>
-
         </div>
-
       </section>
 
-
-      {/* =========================
-          FOOTER
-      ========================= */}
-
+      {/* FOOTER */}
       <footer className="projects-footer">
-
         <div>
-
           <strong>
             MUHAMMAD ABYAN SUDJATMIKO
           </strong>
@@ -283,16 +154,12 @@ export default function Projects() {
           <span>
             Web Developer & Creative Technologist
           </span>
-
         </div>
-
 
         <div>
           © 2026 ABYANNZ. ALL RIGHTS RESERVED.
         </div>
-
       </footer>
-
     </main>
   );
 }
