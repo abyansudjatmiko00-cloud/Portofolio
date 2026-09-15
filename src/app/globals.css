@@ -5207,7 +5207,7 @@ body {
 .projects-content {
   width: 100% !important;
   max-width: none !important;
-  margin: 0 !important;
+  margin: 70px 0 0 0 !important;
   padding-left: 4vw !important;
   padding-right: 4vw !important;
   box-sizing: border-box;
@@ -15252,7 +15252,7 @@ body {
   position: relative;
   width: 100% !important;
   max-width: none !important;
-  margin: 70px 0 0 0 !important;
+  margin: 70px 0 0 !important;
   padding: 18px 0;
   overflow: hidden !important;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -22893,1433 +22893,243 @@ html.dark .connect-section .channels-card > .channel.disabled .channel-action {
 
 }
 
-/* =========================================================
-   ABYANNZ — REAL HOME MOBILE FIX
-   ---------------------------------------------------------
-   THIS IS THE FINAL MOBILE OVERRIDE.
-   DESKTOP (768px+) IS NOT TOUCHED.
-   LIGHT + DARK USE IDENTICAL HOME GEOMETRY.
-========================================================= */
-@media (max-width: 767px) {
-
-  /* HOME HERO */
-  .home-page .hero,
-  html.dark .home-page .hero {
-    width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    padding: 34px 20px 18px !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .hero-content,
-  html.dark .home-page .hero-content {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-
-  /* HELLO, I'M + PORTFOLIO V4.0 — ALWAYS VISIBLE */
-  .home-page .hero-label,
-  html.dark .home-page .hero-label {
-    position: relative !important;
-    z-index: 50 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    width: 100% !important;
-    min-height: 12px !important;
-    margin: 0 0 17px !important;
-    padding: 0 !important;
-    gap: 7px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    animation: none !important;
-    overflow: visible !important;
-    white-space: nowrap !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 7px !important;
-    line-height: 1.25 !important;
-    font-weight: 700 !important;
-    letter-spacing: .10em !important;
-    color: #20a9dc !important;
-  }
-
-  .home-page .hero-label > span:first-child,
-  html.dark .home-page .hero-label > span:first-child {
-    display: inline-block !important;
-    flex: 0 0 4px !important;
-    width: 4px !important;
-    min-width: 4px !important;
-    height: 4px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    background: #42bce9 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .home-page .hero-label > span:nth-child(2),
-  html.dark .home-page .hero-label > span:nth-child(2) {
-    display: inline-block !important;
-    color: #20a9dc !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    white-space: nowrap !important;
-  }
-
-  .home-page .hero-label small,
-  html.dark .home-page .hero-label small {
-    display: inline-block !important;
-    margin: 0 0 0 4px !important;
-    padding: 0 !important;
-    color: #7c858a !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    white-space: nowrap !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 5.5px !important;
-    line-height: 1.25 !important;
-    font-weight: 600 !important;
-    letter-spacing: .07em !important;
-  }
-
-  html.dark .home-page .hero-label,
-  html.dark .home-page .hero-label > span:nth-child(2) {
-    color: #63c9f0 !important;
-  }
-
-  html.dark .home-page .hero-label small {
-    color: #aeb6bb !important;
-  }
-
-  /* NAME — EXACTLY THE DARK-MODE MOBILE SIZE */
-  .home-page .hero h1,
-  html.dark .home-page .hero h1 {
-    position: relative !important;
-    z-index: 10 !important;
-    width: max-content !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    font-family: Georgia, "Times New Roman", serif !important;
-    font-size: 43px !important;
-    line-height: .91 !important;
-    font-weight: 400 !important;
-    letter-spacing: -.055em !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-    transform: none !important;
-    animation: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  html:not(.dark) .home-page .hero h1 { color: #111 !important; }
-  html.dark .home-page .hero h1 { color: #f5f5f5 !important; }
-
-  /* HANDWRITTEN SCRIPT */
-  .home-page .hero-script,
-  html.dark .home-page .hero-script {
-    z-index: 20 !important;
-    pointer-events: none !important;
-    max-width: none !important;
-  }
-
-  /* ROLE — SAME SIZE/POSITION IN BOTH THEMES */
-  .home-page .hero-role,
-  html.dark .home-page .hero-role {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 9px !important;
-    margin: 30px 0 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 8px !important;
-    line-height: 1.35 !important;
-    font-weight: 700 !important;
-    letter-spacing: .12em !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    color: #18a4dc !important;
-  }
-
-  .home-page .hero-role > span,
-  html.dark .home-page .hero-role > span {
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    height: 1px !important;
-    margin: 0 !important;
-  }
-
-  html.dark .home-page .hero-role { color: #55c7f2 !important; }
-
-  /* DESCRIPTION / BUTTONS */
-  .home-page .hero-description,
-  html.dark .home-page .hero-description {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 20px 0 0 !important;
-    padding: 0 !important;
-    font-size: 11px !important;
-    line-height: 1.6 !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .hero-buttons,
-  html.dark .home-page .hero-buttons {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 9px !important;
-    margin: 22px 0 0 !important;
-  }
-
-  .home-page .hero-buttons a,
-  html.dark .home-page .hero-buttons a {
-    width: 100% !important;
-    min-height: 44px !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .field-notes,
-  html.dark .home-page .field-notes {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 23px 0 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* PHOTO — SAME LONG HEIGHT IN LIGHT + DARK */
-  .home-page .hero-image,
-  html.dark .home-page .hero-image {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 18px 0 0 !important;
-    padding: 0 !important;
-    align-self: stretch !important;
-    justify-self: auto !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-
-  .home-page .portrait-frame,
-  html.dark .home-page .portrait-frame {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 10px 10px 58px !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-
-  .home-page .portrait,
-  html.dark .home-page .portrait {
-    display: block !important;
-    width: 100% !important;
-    height: 560px !important;
-    min-height: 560px !important;
-    max-height: 560px !important;
-    aspect-ratio: auto !important;
-    object-fit: cover !important;
-    object-position: center 25% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    filter: grayscale(100%) contrast(1.04) !important;
-  }
-
-  /* Kill old mobile RGB frame lines */
-  .home-page .portrait-frame::before,
-  .home-page .portrait-frame::after,
-  html.dark .home-page .portrait-frame::before,
-  html.dark .home-page .portrait-frame::after,
-  .home-page .hero-image::before,
-  .home-page .hero-image::after,
-  html.dark .home-page .hero-image::before,
-  html.dark .home-page .hero-image::after {
-    content: none !important;
-    display: none !important;
-    animation: none !important;
-  }
-
-  .home-page .image-meta,
-  html.dark .home-page .image-meta {
-    width: 100% !important;
-    margin: 5px 0 0 !important;
-    padding: 0 2px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* HOME FOCUS — BRING IT UP CLOSE TO PHOTO */
-  .home-page .home-focus,
-  .home-page .home-focus-section,
-  html.dark .home-page .home-focus,
-  html.dark .home-page .home-focus-section {
-    width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 12px 20px 48px !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    overflow: visible !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .home-page .home-focus-header,
-  html.dark .home-page .home-focus-header {
-    margin-top: 0 !important;
-  }
-
-  /* PHONE-ONLY DECORATION CLEANUP */
-  .home-page .scroll-explore,
-  .home-page .birds,
-  .home-page .hero-page-indicator,
-  .home-page .hero-build,
-  .home-page .hero-socials {
-    display: none !important;
-  }
-
-  html.theme-changing .home-page .hero,
-  html.theme-changing .home-page .hero-content,
-  html.theme-changing .home-page .hero-image,
-  html.theme-changing .home-page .portrait {
-    transform: none !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .home-page .hero,
-  html.dark .home-page .hero {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-
-  .home-page .portrait,
-  html.dark .home-page .portrait {
-    height: 560px !important;
-    min-height: 560px !important;
-    max-height: 560px !important;
-  }
-
-  .home-page .home-focus,
-  .home-page .home-focus-section,
-  html.dark .home-page .home-focus,
-  html.dark .home-page .home-focus-section {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-}
-
 
 /* =========================================================
-   ABYANNZ — FINAL MOBILE HOME REPAIR
+   ABYANNZ — FINAL MOBILE HOME LOCK
    ---------------------------------------------------------
-   This block intentionally comes LAST.
-   Desktop (768px+) is untouched.
-   Fixes:
-   1) restore dark RGB portrait frame
-   2) keep photo long and identical in light/dark
-   3) place handwritten Web Developer over the name
-   4) keep HELLO label readable
-   5) remove the excessive gap before Home Focus
+   MOBILE ONLY: max-width: 767px
+   DESKTOP: NO CHANGES
+   ---------------------------------------------------------
+   Tujuan:
+   1. Ukuran nama Light = Dark, mengikuti ukuran Dark.
+   2. WEB DEVELOPER & CREATIVE TECHNOLOGIST dibuat konsisten
+      dan tidak terpotong di layar HP.
+   3. Home tetap memiliki tinggi natural agar HomeFocus dan
+      seluruh konten bawah tetap bisa discroll.
+   4. Tidak mengubah About / Projects / Journey.
    ========================================================= */
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
-  /* ---------- HERO GEOMETRY ---------- */
+  /* -------------------------------------------------------
+     HOME: PAGE MUST GROW NATURALLY
+     ------------------------------------------------------- */
 
-  .home-page .hero,
-  html.dark .home-page .hero {
-    display: flex !important;
-    flex-direction: column !important;
+  .home-page {
     width: 100% !important;
+    max-width: 100% !important;
     min-height: 0 !important;
     height: auto !important;
-    gap: 0 !important;
-    padding: 34px 20px 12px !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
   }
 
-  .home-page .hero-content,
-  html.dark .home-page .hero-content {
-    position: relative !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-  }
-
-  /* ---------- LABEL ---------- */
-
-  .home-page .hero-label,
-  html.dark .home-page .hero-label {
-    position: relative !important;
-    z-index: 60 !important;
-    display: flex !important;
-    align-items: center !important;
-    width: 100% !important;
-    min-height: 12px !important;
-    margin: 0 0 17px !important;
-    padding: 0 !important;
-    gap: 7px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    color: #20a9dc !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 7px !important;
-    line-height: 1.25 !important;
-    font-weight: 700 !important;
-    letter-spacing: .10em !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-  }
-
-  .home-page .hero-label > span:first-child,
-  html.dark .home-page .hero-label > span:first-child {
-    flex: 0 0 4px !important;
-    width: 4px !important;
-    min-width: 4px !important;
-    height: 4px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    background: #42bce9 !important;
-  }
-
-  .home-page .hero-label small,
-  html.dark .home-page .hero-label small {
-    margin: 0 0 0 4px !important;
-    padding: 0 !important;
-    color: #7c858a !important;
-    font-size: 5.5px !important;
-    line-height: 1.25 !important;
-    letter-spacing: .07em !important;
-    white-space: nowrap !important;
-  }
-
-  html.dark .home-page .hero-label,
-  html.dark .home-page .hero-label small {
-    color: #63c9f0 !important;
-  }
-
-  /* ---------- NAME ---------- */
-
-  .home-page .hero h1,
-  html.dark .home-page .hero h1 {
-    position: relative !important;
-    z-index: 10 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    font-family: Georgia, "Times New Roman", serif !important;
-    font-size: clamp(39px, 11.8vw, 53px) !important;
-    font-weight: 400 !important;
-    line-height: .92 !important;
-    letter-spacing: -.052em !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  html:not(.dark) .home-page .hero h1 {
-    color: #111 !important;
-  }
-
-  html.dark .home-page .hero h1 {
-    color: #f5f5f5 !important;
-  }
-
-  /* ---------- HANDWRITTEN "WEB DEVELOPER" ---------- */
-
-  .home-page .hero-script,
-  html.dark .home-page .hero-script {
-    position: absolute !important;
-    left: 23% !important;
-    top: 112px !important;
-    z-index: 30 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: none !important;
-    width: max-content !important;
-    white-space: nowrap !important;
-    font-size: 24px !important;
-    line-height: 1 !important;
-    color: #43baf0 !important;
-    transform: rotate(-5deg) !important;
-    animation: none !important;
-    pointer-events: none !important;
-  }
-
-  html.dark .home-page .hero-script {
-    color: #55c7f2 !important;
-    text-shadow: 0 0 10px rgba(85,199,242,.16) !important;
-  }
-
-  /* ---------- ROLE / DESCRIPTION ---------- */
-
-  .home-page .hero-role,
-  html.dark .home-page .hero-role {
-    position: relative !important;
-    z-index: 5 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 30px 0 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 9px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 7px !important;
-    line-height: 1.5 !important;
-    font-weight: 700 !important;
-    letter-spacing: .13em !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .hero-role > span,
-  html.dark .home-page .hero-role > span {
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    height: 1px !important;
-  }
-
-  .home-page .hero-description,
-  html.dark .home-page .hero-description {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 20px 0 0 !important;
-    padding: 0 !important;
-    font-size: 11px !important;
-    line-height: 1.65 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* ---------- BUTTONS / NOTES ---------- */
-
-  .home-page .hero-buttons,
-  html.dark .home-page .hero-buttons {
-    width: 100% !important;
-    margin: 22px 0 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 9px !important;
-  }
-
-  .home-page .hero-buttons a,
-  html.dark .home-page .hero-buttons a {
-    width: 100% !important;
-    min-height: 44px !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .field-notes,
-  html.dark .home-page .field-notes {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 23px 0 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* ---------- PHOTO: SAME LONG GEOMETRY ---------- */
-
-  .home-page .hero-image,
-  html.dark .home-page .hero-image {
-    position: relative !important;
-    z-index: 4 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-self: auto !important;
-    align-self: stretch !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 18px 0 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    filter: none !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .portrait-frame,
-  html.dark .home-page .portrait-frame {
-    position: relative !important;
-    isolation: isolate !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 10px 10px 58px !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-    transform: none !important;
-  }
-
-  .home-page .portrait,
-  html.dark .home-page .portrait {
-    display: block !important;
-    width: 100% !important;
-    height: 560px !important;
-    min-height: 560px !important;
-    max-height: 560px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    object-fit: cover !important;
-    object-position: center 25% !important;
-    filter: grayscale(100%) contrast(1.04) !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-  }
-
-  /* ---------- LIGHT FRAME ---------- */
-
-  html:not(.dark) .home-page .portrait-frame {
-    background: #fff !important;
-    border: 1px solid rgba(75,190,235,.45) !important;
-    box-shadow:
-      14px 16px 0 rgba(80,192,236,.08),
-      0 20px 55px rgba(0,0,0,.07) !important;
-  }
-
-  html:not(.dark) .home-page .portrait-frame::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: -10px !important;
-    border: 1px solid rgba(80,192,236,.20) !important;
-    pointer-events: none !important;
-    display: block !important;
-  }
-
-  html:not(.dark) .home-page .portrait-frame::after {
-    content: "" !important;
-    position: absolute !important;
-    top: -18px !important;
-    left: -18px !important;
-    width: 55px !important;
-    height: 55px !important;
-    border-top: 1px solid #52c2ef !important;
-    border-left: 1px solid #52c2ef !important;
-    pointer-events: none !important;
-    display: block !important;
-  }
-
-  /* ---------- DARK RGB FRAME — RESTORED ---------- */
-
-  html.dark .home-page .portrait-frame {
-    background: #191919 !important;
-    border: 1px solid #333 !important;
-    box-shadow:
-      0 0 0 1px rgba(255,0,80,.20),
-      0 0 18px rgba(0,180,255,.12),
-      0 0 45px rgba(120,0,255,.08) !important;
-  }
-
-  html.dark .home-page .portrait-frame::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: -2px !important;
-    padding: 2px !important;
-    background:
-      conic-gradient(
-        from 0deg,
-        #ff004c,
-        #ff7a00,
-        #fff000,
-        #00ff88,
-        #00c8ff,
-        #0066ff,
-        #9b00ff,
-        #ff00c8,
-        #ff004c
-      ) !important;
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0) !important;
-    -webkit-mask-composite: xor !important;
-    mask-composite: exclude !important;
-    pointer-events: none !important;
-    z-index: 20 !important;
-    display: block !important;
-    animation: rgbFrameRotateMobile 6s linear infinite !important;
-  }
-
-  html.dark .home-page .portrait-frame::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: -5px !important;
-    background:
-      conic-gradient(
-        from 0deg,
-        rgba(255,0,76,.18),
-        rgba(255,122,0,.16),
-        rgba(255,240,0,.12),
-        rgba(0,255,136,.16),
-        rgba(0,200,255,.18),
-        rgba(0,102,255,.16),
-        rgba(155,0,255,.18),
-        rgba(255,0,200,.16),
-        rgba(255,0,76,.18)
-      ) !important;
-    filter: blur(9px) !important;
-    opacity: .42 !important;
-    pointer-events: none !important;
-    z-index: -1 !important;
-    display: block !important;
-    animation: rgbFrameGlowMobile 6s linear infinite !important;
-  }
-
-  @keyframes rgbFrameRotateMobile {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes rgbFrameGlowMobile {
-    0%,100% { transform: rotate(0deg); opacity: .30; }
-    50% { opacity: .52; }
-    100% { transform: rotate(360deg); opacity: .30; }
-  }
-
-  /* ---------- DARK BLUE LED OUTER FRAME ---------- */
-
-  html.dark .home-page .hero-image::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: -3px !important;
-    z-index: 50 !important;
-    pointer-events: none !important;
-    border: 2px solid transparent !important;
-    background:
-      linear-gradient(#111,#111) padding-box,
-      conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        transparent 25deg,
-        #42d9ff 55deg,
-        #7eeaff 75deg,
-        transparent 105deg,
-        transparent 360deg
-      ) border-box !important;
-    animation: blueLedRunMobile 3.5s linear infinite !important;
-    filter:
-      drop-shadow(0 0 4px rgba(66,217,255,.9))
-      drop-shadow(0 0 10px rgba(66,217,255,.45)) !important;
-  }
-
-  html.dark .home-page .hero-image::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: -5px !important;
-    z-index: 40 !important;
-    pointer-events: none !important;
-    border: 1px solid rgba(66,217,255,.08) !important;
-    box-shadow:
-      0 0 12px rgba(66,217,255,.12),
-      0 0 25px rgba(66,217,255,.08) !important;
-    animation: blueLedGlowMobile 3.5s ease-in-out infinite !important;
-  }
-
-  @keyframes blueLedRunMobile {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes blueLedGlowMobile {
-    0%,100% { opacity: .45; }
-    50% { opacity: 1; }
-  }
-
-  /* ---------- IMAGE INFO ---------- */
-
-  .home-page .image-info,
-  html.dark .home-page .image-info {
-    position: absolute !important;
-    right: 10px !important;
-    left: 10px !important;
-    bottom: 10px !important;
-    width: auto !important;
-    box-sizing: border-box !important;
-    padding: 13px 15px !important;
-  }
-
-  html.dark .home-page .image-info {
-    background: #191919 !important;
-    border-color: #333 !important;
-  }
-
-  html.dark .home-page .image-info strong {
-    color: #f5f5f5 !important;
-  }
-
-  html.dark .home-page .image-info div:last-child strong {
-    color: #55bff0 !important;
-  }
-
-  .home-page .image-meta,
-  html.dark .home-page .image-meta {
-    width: 100% !important;
-    margin: 5px 0 0 !important;
-    padding: 0 2px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* ---------- HOME FOCUS: CLOSE TO PHOTO ---------- */
-
-  .home-page .home-focus,
-  .home-page .home-focus-section,
-  html.dark .home-page .home-focus,
-  html.dark .home-page .home-focus-section {
-    width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 12px 20px 48px !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    overflow: visible !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .home-page .home-focus-header,
-  html.dark .home-page .home-focus-header {
-    margin-top: 0 !important;
-  }
-
-  /* Mobile-only extras stay hidden, but NOT the photo or RGB. */
-  .home-page .scroll-explore,
-  .home-page .birds,
-  .home-page .hero-page-indicator,
-  .home-page .hero-build,
-  .home-page .hero-socials {
-    display: none !important;
-  }
-}
-
-/* Small phones: only horizontal padding changes. */
-@media (max-width: 390px) {
-  .home-page .hero,
-  html.dark .home-page .hero {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-
-  .home-page .home-focus,
-  .home-page .home-focus-section,
-  html.dark .home-page .home-focus,
-  html.dark .home-page .home-focus-section {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-}
-
-
-/* =========================================================
-   ABYANNZ — HOME MOBILE
-   LIGHT MODE = DARK MODE GEOMETRY
-   ---------------------------------------------------------
-   IMPORTANT:
-   - Only LIGHT mode is normalized here.
-   - DARK mode is NOT changed.
-   - RGB / LED pseudo-elements are NOT touched.
-   - Desktop (768px+) is NOT changed.
-   - This block is intentionally the LAST mobile override.
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-  /* -------------------------------------------------------
-     01. HERO — same geometry
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero {
-    width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-    padding: 34px 20px 18px !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-  }
-
-  html:not(.dark) .home-page .hero-content {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-
-  /* -------------------------------------------------------
-     02. LABEL — same position / size
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero-label {
-    position: relative !important;
-    z-index: 50 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    width: 100% !important;
-    min-height: 12px !important;
-    margin: 0 0 17px !important;
-    padding: 0 !important;
-    gap: 7px !important;
-    transform: none !important;
-    animation: none !important;
-    overflow: visible !important;
-    white-space: nowrap !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 7px !important;
-    line-height: 1.25 !important;
-    font-weight: 700 !important;
-    letter-spacing: .10em !important;
-  }
-
-  html:not(.dark) .home-page .hero-label > span:first-child {
-    display: inline-block !important;
-    flex: 0 0 4px !important;
-    width: 4px !important;
-    min-width: 4px !important;
-    height: 4px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  html:not(.dark) .home-page .hero-label > span:nth-child(2) {
-    display: inline-block !important;
-    white-space: nowrap !important;
-  }
-
-  html:not(.dark) .home-page .hero-label small {
-    display: inline-block !important;
-    margin: 0 0 0 4px !important;
-    padding: 0 !important;
-    white-space: nowrap !important;
-    font-size: 5.5px !important;
-    line-height: 1.25 !important;
-    letter-spacing: .07em !important;
-  }
-
-  /* -------------------------------------------------------
-     03. NAME — exactly same geometry as dark
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero h1 {
-    position: relative !important;
-    z-index: 10 !important;
-    width: max-content !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    font-family: Georgia, "Times New Roman", serif !important;
-    font-size: 43px !important;
-    line-height: .91 !important;
-    font-weight: 400 !important;
-    letter-spacing: -.055em !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  /* -------------------------------------------------------
-     04. SCRIPT — same geometry
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero-script,
-  html:not(.dark) .home-page .hero-name-script,
-  html:not(.dark) .home-page .hero h1 + .hero-script {
-    z-index: 20 !important;
-    max-width: none !important;
-  }
-
-  /* -------------------------------------------------------
-     05. ROLE — same geometry
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero-role {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 9px !important;
-    margin: 30px 0 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    font-size: 8px !important;
-    line-height: 1.35 !important;
-    font-weight: 700 !important;
-    letter-spacing: .12em !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    transform: none !important;
-  }
-
-  html:not(.dark) .home-page .hero-role > span {
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    height: 1px !important;
-    margin: 0 !important;
-  }
-
-  /* -------------------------------------------------------
-     06. DESCRIPTION
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero-description {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 20px 0 0 !important;
-    padding: 0 !important;
-    font-size: 11px !important;
-    line-height: 1.6 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* -------------------------------------------------------
-     07. BUTTONS
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero-buttons {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 9px !important;
-    margin: 22px 0 0 !important;
-  }
-
-  html:not(.dark) .home-page .hero-buttons a {
-    width: 100% !important;
-    min-height: 44px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* -------------------------------------------------------
-     08. FIELD NOTES
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .field-notes {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 23px 0 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* -------------------------------------------------------
-     09. PHOTO — exactly same geometry
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .hero-image {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 18px 0 0 !important;
-    padding: 0 !important;
-    align-self: stretch !important;
-    justify-self: auto !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-
-  html:not(.dark) .home-page .portrait-frame {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 10px 10px 58px !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-  }
-
-  html:not(.dark) .home-page .portrait {
-    display: block !important;
-    width: 100% !important;
-    height: 560px !important;
-    min-height: 560px !important;
-    max-height: 560px !important;
-    aspect-ratio: auto !important;
-    object-fit: cover !important;
-    object-position: center 25% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-  }
-
-  /* -------------------------------------------------------
-     10. IMAGE INFO / META
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .image-info {
-    position: absolute !important;
-    right: 10px !important;
-    left: 10px !important;
-    bottom: 10px !important;
-    width: auto !important;
-    box-sizing: border-box !important;
-    padding: 13px 15px !important;
-  }
-
-  html:not(.dark) .home-page .image-meta {
-    width: 100% !important;
-    margin: 5px 0 0 !important;
-    padding: 0 2px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* -------------------------------------------------------
-     11. HOME FOCUS — same geometry
-     ------------------------------------------------------- */
-
-  html:not(.dark) .home-page .home-focus,
-  html:not(.dark) .home-page .home-focus-section {
-    width: 100% !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 12px 20px 48px !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    overflow: visible !important;
-  }
-
-  html:not(.dark) .home-page .home-focus-header {
-    margin-top: 0 !important;
-  }
-}
-
-/* Small phones — same horizontal geometry as dark */
-@media (max-width: 390px) {
-
-  html:not(.dark) .home-page .hero {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-
-  html:not(.dark) .home-page .home-focus,
-  html:not(.dark) .home-page .home-focus-section {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-}
-
-
-/* =========================================================
-   ABYANNZ — HOME MOBILE FLOW FIX
-   ---------------------------------------------------------
-   PURPOSE:
-   Fix the actual document flow between:
-   PHOTO -> WHAT I DO
-
-   IMPORTANT:
-   - No negative margin.
-   - Do not shrink/crop the portrait.
-   - Do not change RGB/LED.
-   - Do not change colors.
-   - Dark and light keep the same geometry.
-   - Desktop (768px+) is untouched.
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-  /* The Home hero must grow to the real height of ALL
-     its children. Nothing is allowed to create a fake
-     viewport-sized gap. */
   .home-page .hero {
-    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
     min-height: 0 !important;
-    max-height: none !important;
+    height: auto !important;
 
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
 
-    gap: 0 !important;
-
-    padding-bottom: 0 !important;
-
-    overflow: visible !important;
-  }
-
-  /* Photo remains a normal-flow child of the Hero. */
-  .home-page .hero-image {
-    position: relative !important;
-    display: block !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    margin: 18px 0 0 !important;
-    padding: 0 !important;
-
-    align-self: stretch !important;
-    justify-self: auto !important;
-
-    overflow: visible !important;
-    transform: none !important;
-  }
-
-  .home-page .portrait-frame {
-    position: relative !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
     margin: 0 !important;
-
-    /* Keep the bottom information area inside the frame. */
-    padding: 10px 10px 58px !important;
-
     box-sizing: border-box !important;
 
     overflow: visible !important;
   }
 
-  /* IMPORTANT: the portrait itself gets its real long
-     mobile height. No aspect-ratio rule may collapse it. */
-  .home-page .portrait {
-    display: block !important;
-
+  .home-page .hero-content {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
 
-    height: 560px !important;
-    min-height: 560px !important;
-    max-height: 560px !important;
+    margin: 0 !important;
+    transform: none !important;
 
-    aspect-ratio: auto !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* -------------------------------------------------------
+     NAMA UTAMA
+     Light & Dark benar-benar memakai ukuran yang sama.
+     Ukuran mengikuti versi Dark yang disukai.
+     ------------------------------------------------------- */
+
+  .home-page .hero h1,
+  html.dark .home-page .hero h1,
+  html:not(.dark) .home-page .hero h1 {
+    width: max-content !important;
+    max-width: none !important;
+    min-width: 0 !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
-    object-fit: cover !important;
-    object-position: center 25% !important;
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 43px !important;
+    font-weight: 400 !important;
+    line-height: 0.91 !important;
+    letter-spacing: -0.055em !important;
 
-    box-sizing: border-box !important;
+    white-space: nowrap !important;
     transform: none !important;
   }
 
-  /* Meta belongs immediately after the frame. */
-  .home-page .image-meta {
+  /* Jangan biarkan selector dark lama mengubah ukuran nama. */
+  html.dark .home-page .hero h1 {
+    font-size: 43px !important;
+    line-height: 0.91 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  /* -------------------------------------------------------
+     SCRIPT "Web Developer" yang menyilang nama
+     Tetap relatif terhadap judul.
+     ------------------------------------------------------- */
+
+  .home-page .hero-script,
+  .home-page .hero-name-script,
+  .home-page .hero h1 + .hero-script {
+    max-width: none !important;
+    transform: none !important;
+  }
+
+  /* -------------------------------------------------------
+     ROLE
+     WEB DEVELOPER & CREATIVE TECHNOLOGIST
+     ------------------------------------------------------- */
+
+  .home-page .hero-role,
+  html.dark .home-page .hero-role,
+  html:not(.dark) .home-page .hero-role {
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+
+    margin-top: 36px !important;
+    margin-left: 0 !important;
+
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.16em !important;
+
+    white-space: normal !important;
+    overflow: visible !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .hero-role > span,
+  html.dark .home-page .hero-role > span,
+  html:not(.dark) .home-page .hero-role > span {
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 1px !important;
+  }
+
+  /* Teks role boleh turun baris, tetapi tidak boleh
+     menyebabkan halaman melebar ke kanan. */
+  .home-page .hero-role {
+    overflow-wrap: anywhere !important;
+  }
+
+  /* -------------------------------------------------------
+     KONTEN SETELAH ROLE
+     ------------------------------------------------------- */
+
+  .home-page .hero-role + .hero-description {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+
+  .home-page .hero-description {
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .home-page .hero-buttons {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .home-page .field-notes {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* -------------------------------------------------------
+     HOME FOCUS / KONTEN TAMBAHAN
+     Jangan pernah diclip oleh hero.
+     ------------------------------------------------------- */
+
+  .home-page .home-focus,
+  html.dark .home-page .home-focus {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    position: relative !important;
+
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
 
-    margin: 5px 0 0 !important;
-    padding: 0 2px !important;
+    overflow: visible !important;
 
     box-sizing: border-box !important;
   }
 
   /* -------------------------------------------------------
-     WHAT I DO — DIRECTLY AFTER THE HERO
+     FOTO HOME
      ------------------------------------------------------- */
-
-  .home-page .home-focus,
-  .home-page .home-focus-section {
-    position: relative !important;
-
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    display: block !important;
-
-    /* CRITICAL: cancel the previous -275px hack. */
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-
-    /* Only a tiny breathing space after the photo. */
-    padding-top: 8px !important;
-    padding-bottom: 48px !important;
-
-    box-sizing: border-box !important;
-
-    overflow: visible !important;
-
-    transform: none !important;
-  }
-
-  .home-page .home-focus-header {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /* Prevent any hidden min-height from older HomeFocus
-     rules from producing the white void. */
-  .home-page .home-focus-watermark {
-    pointer-events: none !important;
-  }
-}
-
-/* Small phones: keep exactly the same flow. */
-@media (max-width: 390px) {
-  .home-page .hero {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-  }
-
-  .home-page .home-focus,
-  .home-page .home-focus-section {
-    padding-left: 17px !important;
-    padding-right: 17px !important;
-    padding-top: 8px !important;
-  }
-}
-
-/* =========================================================
-   ABYANNZ — FINAL MOBILE HOME FLOW
-   PHOTO → WHAT I DO → WEB DEVELOPMENT → UI/UX → LEARNING
-
-   LIGHT & DARK = GEOMETRY IDENTICAL
-   DESKTOP = TIDAK DISENTUH
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-  /* =======================================================
-     1. HERO HARUS MENGIKUTI ISI, BUKAN TINGGI LAYAR
-     ======================================================= */
-
-  .home-page .hero,
-  html.dark .home-page .hero {
-    position: relative !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-
-    width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    gap: 0 !important;
-
-    padding-top: 34px !important;
-    padding-bottom: 0 !important;
-
-    margin: 0 !important;
-
-    overflow: visible !important;
-
-    box-sizing: border-box !important;
-  }
-
-
-  /* =======================================================
-     2. HERO CONTENT NORMAL FLOW
-     ======================================================= */
-
-  .home-page .hero-content,
-  html.dark .home-page .hero-content {
-    position: relative !important;
-
-    width: 100% !important;
-    max-width: none !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    transform: none !important;
-
-    overflow: visible !important;
-
-    box-sizing: border-box !important;
-  }
-
-
-  /* =======================================================
-     3. FOTO NORMAL FLOW
-     ======================================================= */
 
   .home-page .hero-image,
   html.dark .home-page .hero-image {
-    position: relative !important;
-
-    display: block !important;
-
     width: 100% !important;
     max-width: 100% !important;
 
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    margin: 18px 0 0 !important;
-    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 
     transform: none !important;
 
-    overflow: visible !important;
-
     box-sizing: border-box !important;
+    overflow: visible !important;
   }
-
-
-  /* =======================================================
-     4. FRAME FOTO
-     ======================================================= */
 
   .home-page .portrait-frame,
   html.dark .home-page .portrait-frame {
-    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
 
+    box-sizing: border-box !important;
+  }
+
+  .home-page .portrait,
+  html.dark .home-page .portrait {
     width: 100% !important;
     max-width: 100% !important;
 
@@ -24327,427 +23137,130 @@ html.dark .connect-section .channels-card > .channel.disabled .channel-action {
     min-height: 0 !important;
     max-height: none !important;
 
-    margin: 0 !important;
-
-    padding: 10px 10px 58px !important;
-
-    box-sizing: border-box !important;
-
-    overflow: visible !important;
-
-    transform: none !important;
-  }
-
-
-  /* =======================================================
-     5. FOTO — PANJANG, TIDAK DIPOTONG OLEH FRAME
-     ======================================================= */
-
-  .home-page .portrait,
-  html.dark .home-page .portrait {
     display: block !important;
-
-    width: 100% !important;
-
-    height: 575px !important;
-    min-height: 575px !important;
-    max-height: 575px !important;
-
-    aspect-ratio: auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
 
     object-fit: cover !important;
-    object-position: center center !important;
-
-    box-sizing: border-box !important;
+    object-position: center 25% !important;
 
     transform: none !important;
-
-    filter: grayscale(100%) contrast(1.04) !important;
   }
 
+  /* -------------------------------------------------------
+     SCROLL
+     ------------------------------------------------------- */
 
-  /* =======================================================
-     6. META FOTO
-     ======================================================= */
-
-  .home-page .image-meta,
-  html.dark .home-page .image-meta {
+  .home-page .scroll-explore {
     position: relative !important;
 
-    width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-
-    margin: 5px 0 0 !important;
-    padding: 0 2px !important;
-
-    box-sizing: border-box !important;
-
-    transform: none !important;
-  }
-
-
-  /* =======================================================
-     7. HOME FOCUS — SATU ALUR NORMAL
-     ======================================================= */
-
-  .home-page .home-focus,
-  html.dark .home-page .home-focus {
-    position: relative !important;
-
-    display: block !important;
-
-    width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    margin: 0 !important;
-    padding: 8px 20px 48px !important;
-
-    box-sizing: border-box !important;
-
-    overflow: visible !important;
-
-    transform: none !important;
-
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-
-  /* =======================================================
-     8. WHAT I DO — JANGAN DIGESER SENDIRI
-     ======================================================= */
-
-  .home-page .home-focus-header,
-  html.dark .home-page .home-focus-header {
-    position: relative !important;
-
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-
-    margin: 0 !important;
-    padding-top: 0 !important;
-
-    transform: none !important;
-  }
-
-
-  /* =======================================================
-     9. LIST HARUS LANGSUNG MENGIKUTI HEADER
-     ======================================================= */
-
-  .home-page .home-focus-list,
-  html.dark .home-page .home-focus-list {
-    position: relative !important;
-
-    display: block !important;
-
-    width: 100% !important;
-
-    height: auto !important;
-    min-height: 0 !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    transform: none !important;
-  }
-
-
-  /* =======================================================
-     10. SEMUA ITEM HOME FOCUS IKUT NAIK
-     ======================================================= */
-
-  .home-page .home-focus-item,
-  html.dark .home-page .home-focus-item {
-    position: relative !important;
-
-    width: 100% !important;
-
-    height: auto !important;
-
-    min-height: 0 !important;
-
-    margin: 0 !important;
-
-    transform: none !important;
-
-    box-sizing: border-box !important;
-  }
-
-
-  /* =======================================================
-     11. WATERMARK TETAP DECORATION, BUKAN SUMBER SPACING
-     ======================================================= */
-
-  .home-page .home-focus-watermark,
-  html.dark .home-page .home-focus-watermark {
-    position: absolute !important;
-
-    pointer-events: none !important;
-
-    z-index: 0 !important;
-  }
-
-
-  /* =======================================================
-     12. MATIKAN SEMUA PERGESERAN LAMA
-     ======================================================= */
-
-  .home-page .home-focus,
-  .home-page .home-focus-header,
-  .home-page .home-focus-list,
-  .home-page .home-focus-item,
-  html.dark .home-page .home-focus,
-  html.dark .home-page .home-focus-header,
-  html.dark .home-page .home-focus-list,
-  html.dark .home-page .home-focus-item {
-    top: auto !important;
-    bottom: auto !important;
     left: auto !important;
     right: auto !important;
+    bottom: auto !important;
 
-    translate: none !important;
+    margin: 28px auto 0 !important;
+
+    transform: none !important;
+
+    white-space: nowrap !important;
   }
-
-
-  /* =======================================================
-     13. SMALL PHONE
-     ======================================================= */
-
-  @media (max-width: 390px) {
-
-    .home-page .hero,
-    html.dark .home-page .hero {
-      padding-left: 17px !important;
-      padding-right: 17px !important;
-    }
-
-    .home-page .home-focus,
-    html.dark .home-page .home-focus {
-      padding-left: 17px !important;
-      padding-right: 17px !important;
-    }
-
-  }
-
-}
-
-
-/* =========================================================
-   HOME BUTTON — FINAL SIZE LOCK
-   LIGHT & DARK MUST BE IDENTICAL
-   ========================================================= */
-
-.home-page .hero-buttons .button-primary,
-.home-page .hero-buttons .button-secondary,
-html.dark .home-page .hero-buttons .button-primary,
-html.dark .home-page .hero-buttons .button-secondary,
-.dark .home-page .hero-buttons .button-primary,
-.dark .home-page .hero-buttons .button-secondary {
-  font-size: 7px !important;
-  line-height: 1 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.12em !important;
-  font-family: inherit !important;
-  text-transform: uppercase !important;
 }
 
 /* =========================================================
-   HOME BUTTON — EXACT LIGHT/DARK MATCH
+   VERY SMALL PHONE — HOME ONLY
+   Still mobile-only; desktop untouched.
    ========================================================= */
 
-.home-page .hero-buttons .button-primary,
-.home-page .hero-buttons .button-secondary,
-html:not(.dark) .home-page .hero-buttons .button-primary,
-html:not(.dark) .home-page .hero-buttons .button-secondary,
-html.dark .home-page .hero-buttons .button-primary,
-html.dark .home-page .hero-buttons .button-secondary {
-  font-size: 9px !important;
-  font-family: inherit !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-}
+@media screen and (max-width: 390px) {
 
-@media (max-width: 767px) {
-  .home-page .hero-buttons .button-primary,
-  .home-page .hero-buttons .button-secondary,
-  html:not(.dark) .home-page .hero-buttons .button-primary,
-  html:not(.dark) .home-page .hero-buttons .button-secondary,
-  html.dark .home-page .hero-buttons .button-primary,
-  html.dark .home-page .hero-buttons .button-secondary {
-    font-size: 9px !important;
-    font-family: inherit !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
+  .home-page .hero h1,
+  html.dark .home-page .hero h1,
+  html:not(.dark) .home-page .hero h1 {
+    font-size: 42px !important;
+    line-height: 0.91 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .home-page .hero-role,
+  html.dark .home-page .hero-role,
+  html:not(.dark) .home-page .hero-role {
+    font-size: 8.5px !important;
+    line-height: 1.5 !important;
     letter-spacing: 0.14em !important;
+    gap: 10px !important;
+  }
+
+  .home-page .hero-role > span,
+  html.dark .home-page .hero-role > span,
+  html:not(.dark) .home-page .hero-role > span {
+    flex-basis: 36px !important;
+    width: 36px !important;
+    min-width: 36px !important;
   }
 }
 
 /* =========================================================
-   FINAL FIX — DESKTOP HOME NAVBAR
-   Navbar harus selalu terlihat saat halaman Home di-scroll.
-   Mobile tidak disentuh.
+   FINAL HOME MOBILE TOP SPACING FIX
+   LIGHT & DARK — POSISI SAMA
    ========================================================= */
 
-@media (min-width: 901px) {
-  /* Home tidak boleh menjadi clipping/scroll container */
-  .home-page,
-  html.dark .home-page {
+@media (max-width: 600px) {
+  .home-page .hero-content {
+    padding: 20px 18px 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .hero-topline {
     position: relative !important;
-    width: 100% !important;
-    min-height: 100vh !important;
-
-    overflow-x: clip !important;
-    overflow-y: visible !important;
-
-    transform: none !important;
-    filter: none !important;
-    perspective: none !important;
-  }
-
-  /* Navbar selalu menempel ke viewport */
-  .home-page > .navbar,
-  .navbar {
-    position: fixed !important;
-
     top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+    transform: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
 
-    width: 100% !important;
+  html.dark .home-page .hero-content {
+    padding: 20px 18px 0 !important;
+    margin: 0 !important;
+  }
 
-    z-index: 999999 !important;
-
+  html.dark .home-page .hero-topline {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+    padding: 0 !important;
     transform: none !important;
   }
 }
 
-/* =========================================================
-   FIX — ABOUT PAGE CONTENT TERPOTONG DI BAWAH NAVBAR
-   DESKTOP ONLY
-   ========================================================= */
+/* 375px */
+@media (max-width: 390px) {
+  .home-page .hero-content,
+  html.dark .home-page .hero-content {
+    padding: 20px 17px 0 !important;
+  }
 
-@media (min-width: 901px) {
-  .about-page {
-    padding-top: 90px !important;
+  .home-page .hero-topline,
+  html.dark .home-page .hero-topline {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
   }
 }
 
 /* =========================================================
-   FINAL FIX — HOME CONTENT DI BAWAH NAVBAR
-   DESKTOP ONLY
+   FINAL GLOBAL GRID BACKGROUND
+   Restore kotak-kotak di SEMUA halaman
+   Light + Dark
    ========================================================= */
 
-@media (min-width: 901px) {
-  .home-page {
-    padding-top: 90px !important;
-    box-sizing: border-box !important;
-  }
-}
+/* ---------- LIGHT MODE ---------- */
 
-/* =========================================================
-   HOME — DARK MODE TOP SPACING MATCH LIGHT MODE
-  
-
-/* HOME — DARK MODE TOP SPACING MATCH LIGHT MODE */
-@media (min-width: 901px) {
-  html.dark .home-page {
-    padding-top: 90px !important;
-    box-sizing: border-box !important;
-  }
-}
-
-/* Background global portfolio */
-.site-background {
-  min-height: 100vh;
-  background-color: #f8fafc;
-  background-image:
-    linear-gradient(rgba(203, 213, 225, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(203, 213, 225, 0.35) 1px, transparent 1px),
-    radial-gradient(circle at 0% 0%, rgba(147, 197, 253, 0.25), transparent 28%),
-    radial-gradient(circle at 100% 100%, rgba(165, 180, 252, 0.25), transparent 30%);
-  background-size:
-    50px 50px,
-    50px 50px,
-    100% 100%,
-    100% 100%;
-  background-attachment: fixed;
-}
-
-
-/* =========================================================
-   GLOBAL BACKGROUND OVERRIDE
-   Hanya mengubah background agar grid terlihat di semua halaman.
-   ========================================================= */
-
-html,
-body {
-  min-height: 100%;
-}
-
-body {
-  background-color: #f8fafc;
-  background-image:
-    linear-gradient(
-      rgba(203, 213, 225, 0.35) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(203, 213, 225, 0.35) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      circle at 0% 0%,
-      rgba(147, 197, 253, 0.25),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 100% 100%,
-      rgba(165, 180, 252, 0.25),
-      transparent 30%
-    );
-  background-size:
-    50px 50px,
-    50px 50px,
-    100% 100%,
-    100% 100%;
-  background-attachment: fixed;
-}
-
-/* Membiarkan grid body terlihat pada pembungkus halaman utama. */
-.hero,
-.about-page,
-.projects-page {
-  background: transparent;
-}
-
-
-/* =========================================================
-   GLOBAL BACKGROUND FIX V2
-   Grid juga diterapkan pada Home dan Journey.
-   Tidak mengubah layout, ukuran, warna teks, atau komponen lain.
-   ========================================================= */
-
-html,
-body {
-  min-height: 100%;
-}
-
-body {
+html:not(.dark),
+html:not(.dark) body {
   background-color: #f8fafc !important;
+
   background-image:
     linear-gradient(
       rgba(203, 213, 225, 0.35) 1px,
@@ -24760,83 +23273,31 @@ body {
     ),
     radial-gradient(
       circle at 0% 0%,
-      rgba(147, 197, 253, 0.25),
-      transparent 30%
+      rgba(147, 197, 253, 0.20),
+      transparent 32%
     ),
     radial-gradient(
       circle at 100% 100%,
-      rgba(165, 180, 252, 0.25),
-      transparent 30%
+      rgba(165, 180, 252, 0.20),
+      transparent 32%
     ) !important;
+
   background-size:
     50px 50px,
     50px 50px,
     100% 100%,
     100% 100% !important;
+
   background-attachment: fixed !important;
 }
 
-/* Semua pembungkus halaman dibuat transparan
-   supaya background body terlihat di setiap halaman. */
-.home-page,
-.home-page .hero,
-.journey-page,
-.journey-page .journey-section,
-.about-page,
-.projects-page {
-  background-color: transparent !important;
-  background-image: none !important;
-}
 
-
-/* =========================================================
-   HOME BACKGROUND FIX V3
-   Mengatasi background putih yang masih menimpa Home.
-   ========================================================= */
-
-/* Hanya area utama Home dibuat transparan agar grid body terlihat. */
-.home-page,
-.home-page > main,
-.home-page main,
-.home-page .hero,
-.home-page .home-focus,
-.home-page .home-focus-section {
-  background-color: transparent !important;
-  background-image: none !important;
-}
-
-/* Menjaga navbar tetap memiliki background sendiri. */
-.home-page > .navbar,
-.home-page .navbar {
-  background-image: none !important;
-}
-
-
-/* =========================================================
-   HOME BACKGROUND FIX V4
-   Menimpa rule lama yang secara khusus memberi background
-   #ffffff dan #f4f4f1 pada Home dalam mode terang.
-   ========================================================= */
-
-html:not(.dark) .home-page,
-html:not(.dark) .home-page .hero {
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-}
-
-
-/* =========================================================
-   DARK MODE BACKGROUND FIX V5
-   Background grid diterapkan juga saat mode gelap.
-   ========================================================= */
+/* ---------- DARK MODE ---------- */
 
 html.dark,
 html.dark body {
   background-color: #111827 !important;
-}
 
-html.dark body {
   background-image:
     linear-gradient(
       rgba(148, 163, 184, 0.16) 1px,
@@ -24849,942 +23310,733 @@ html.dark body {
     ),
     radial-gradient(
       circle at 0% 0%,
-      rgba(59, 130, 246, 0.16),
-      transparent 30%
+      rgba(59, 130, 246, 0.12),
+      transparent 32%
     ),
     radial-gradient(
       circle at 100% 100%,
-      rgba(99, 102, 241, 0.16),
-      transparent 30%
+      rgba(99, 102, 241, 0.12),
+      transparent 32%
     ) !important;
+
   background-size:
     50px 50px,
     50px 50px,
     100% 100%,
     100% 100% !important;
+
   background-attachment: fixed !important;
 }
 
-/* Semua halaman tetap transparan agar grid body terlihat
-   dalam mode terang maupun mode gelap. */
-html.dark .home-page,
-html.dark .home-page > main,
-html.dark .home-page main,
-html.dark .home-page .hero,
-html.dark .home-page .home-focus,
-html.dark .home-page .home-focus-section,
-html.dark .journey-page,
-html.dark .journey-page .journey-section,
-html.dark .about-page,
-html.dark .projects-page {
+
+/* =========================================================
+   SEMUA PAGE HARUS TRANSPARAN
+   Supaya grid dari body terlihat
+   ========================================================= */
+
+.home-page,
+.home-page .hero,
+.home-page .home-focus,
+.home-page .home-focus-section,
+
+.about-page,
+.about-page .about-main,
+
+.projects-page,
+.projects-page .projects-content,
+
+.journey-page,
+.journey-page .journey-section {
   background-color: transparent !important;
   background-image: none !important;
 }
 
 
-/* Theme-aware 404 page */
-.not-found-page {
-  background: #f7f8fa;
-  color: #0f172a;
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.not-found-grid {
-  background-image:
-    linear-gradient(rgba(100, 116, 139, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 116, 139, 0.16) 1px, transparent 1px);
-  background-size: 54px 54px;
-}
-
-.not-found-glow-one {
-  background: rgba(125, 211, 252, 0.30);
-}
-
-.not-found-glow-two {
-  background: rgba(165, 180, 252, 0.30);
-}
-
-.not-found-number {
-  color: #e2e8f0;
-}
-
-.not-found-dot {
-  background: #38bdf8;
-  box-shadow: 0 0 0 12px rgba(56, 189, 248, 0.12);
-}
-
-.not-found-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
-}
-
-.not-found-symbol {
-  color: #0284c7;
-}
-
-.not-found-title {
-  color: #0f172a;
-}
-
-.not-found-description {
-  color: #64748b;
-}
-
-.not-found-home-button {
-  background: #0f172a;
-  color: #ffffff;
-}
-
-.not-found-home-button:hover {
-  background: #1e293b;
-}
-
-.not-found-project-button {
-  border: 1px solid rgba(14, 165, 233, 0.55);
-  background: rgba(14, 165, 233, 0.08);
-  color: #0369a1;
-}
-
-.not-found-project-button:hover {
-  background: rgba(14, 165, 233, 0.16);
-}
-
-/* Dark theme: Navbar/theme toggle should add .dark to <html> */
-html.dark .not-found-page {
-  background: #080909;
-  color: #f8fafc;
-}
-
-html.dark .not-found-grid {
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
-}
-
-html.dark .not-found-glow-one {
-  background: rgba(14, 165, 233, 0.16);
-}
-
-html.dark .not-found-glow-two {
-  background: rgba(99, 102, 241, 0.16);
-}
-
-html.dark .not-found-number {
-  color: #1e293b;
-}
-
-html.dark .not-found-card {
-  background: #252b3a;
-  border-color: #3f485b;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-}
-
-html.dark .not-found-symbol {
-  color: #38bdf8;
-}
-
-html.dark .not-found-title {
-  color: #f8fafc;
-}
-
-html.dark .not-found-description {
-  color: #cbd5e1;
-}
-
-html.dark .not-found-home-button {
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-html.dark .not-found-home-button:hover {
-  background: #e2e8f0;
-}
-
-html.dark .not-found-project-button {
-  border-color: rgba(56, 189, 248, 0.55);
-  background: rgba(56, 189, 248, 0.10);
-  color: #7dd3fc;
-}
-
-html.dark .not-found-project-button:hover {
-  background: rgba(56, 189, 248, 0.20);
-}
-
 /* =========================================================
-   404 PAGE — MONOCHROME GRADIENT ANIMATION
-   Tidak bergantung pada light/dark mode
+   DARK MODE — JANGAN BIARKAN BACKGROUND SOLID MENUTUP GRID
    ========================================================= */
 
-.not-found-page {
-  position: relative;
-  isolation: isolate;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 24px;
-  color: #ffffff;
-  background: #080808;
-}
-
-/* Background bergerak dari putih ke hitam */
-
-.not-found-background {
-  position: absolute;
-  z-index: -3;
-  inset: -30%;
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      #ffffff 0%,
-      #d9d9d9 18%,
-      #777777 38%,
-      #292929 62%,
-      #080808 85%
-    );
-  animation: not-found-gradient-move 14s ease-in-out infinite alternate;
-  transform: translate3d(0, 0, 0);
-}
-
-@keyframes not-found-gradient-move {
-  0% {
-    transform: translate(-8%, -5%) scale(1);
-    filter: brightness(1);
-  }
-
-  50% {
-    transform: translate(8%, 5%) scale(1.12);
-    filter: brightness(0.85);
-  }
-
-  100% {
-    transform: translate(-4%, 10%) scale(1.05);
-    filter: brightness(1.1);
-  }
-}
-
-/* Lapisan hitam transparan agar teks selalu terbaca */
-
-.not-found-page::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.62),
-      rgba(0, 0, 0, 0.18) 45%,
-      rgba(0, 0, 0, 0.8)
-    );
-}
-
-/* Tekstur halus */
-
-.not-found-noise {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.12;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
-}
-
-/* Konten */
-
-.not-found-content {
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
-  animation: not-found-content-enter 0.8s ease both;
-}
-
-@keyframes not-found-content-enter {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.not-found-label {
-  margin: 0 0 20px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-.not-found-number {
-  margin: 0;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(9rem, 28vw, 20rem);
-  font-weight: 900;
-  line-height: 0.78;
-  letter-spacing: -0.1em;
-  text-shadow:
-    0 0 35px rgba(255, 255, 255, 0.16),
-    0 20px 80px rgba(0, 0, 0, 0.55);
-}
-
-.not-found-divider {
-  width: 100%;
-  max-width: 420px;
-  height: 1px;
-  margin: 42px auto 28px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.8),
-    transparent
-  );
-}
-
-.not-found-title {
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.not-found-title span {
-  color: #aaaaaa;
-}
-
-.not-found-description {
-  max-width: 500px;
-  margin: 18px auto 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-/* Tombol */
-
-.not-found-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.not-found-button {
-  display: inline-flex;
-  min-width: 180px;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.not-found-button:hover {
-  transform: translateY(-3px);
-}
-
-.not-found-button-primary {
-  border-color: #ffffff;
-  background: #ffffff;
-  color: #080808;
-}
-
-.not-found-button-primary:hover {
-  background: #dcdcdc;
-  border-color: #dcdcdc;
-}
-
-.not-found-button-secondary {
-  background: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
-  backdrop-filter: blur(12px);
-}
-
-.not-found-button-secondary:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: #ffffff;
-}
-
-/* Tampilan mobile */
-
-@media (max-width: 640px) {
-  .not-found-page {
-    padding: 32px 18px;
-  }
-
-  .not-found-number {
-    font-size: clamp(7rem, 30vw, 12rem);
-  }
-
-  .not-found-divider {
-    margin-top: 32px;
-  }
-
-  .not-found-description {
-    font-size: 14px;
-  }
-
-  .not-found-actions {
-    flex-direction: column;
-  }
-
-  .not-found-button {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
-/* Menghormati pengaturan reduce motion */
-
-@media (prefers-reduced-motion: reduce) {
-  .not-found-background,
-  .not-found-content {
-    animation: none;
-  }
-
-  .not-found-button {
-    transition: none;
-  }
-}
-
-/* =========================================================
-   404 STATIC BLACK & WHITE DESIGN
-   TANPA ANIMASI
-   ========================================================= */
-
-.not-found-page {
-  position: relative;
-  isolation: isolate;
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 24px;
-  color: #ffffff;
-  background:
-    radial-gradient(
-      ellipse at 28% 45%,
-      #686868 0%,
-      #414141 35%,
-      #1d1d1d 65%,
-      #080808 100%
-    );
-}
-
-/* Background statis */
-
-.not-found-background {
-  position: absolute;
-  z-index: -3;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse at 28% 45%,
-      #686868 0%,
-      #414141 35%,
-      #1d1d1d 65%,
-      #080808 100%
-    );
-
-  /* Memastikan tidak ada animasi */
-  animation: none !important;
-  transform: none !important;
-  filter: none !important;
-}
-
-/* Lapisan gelap */
-
-.not-found-page::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(0, 0, 0, 0.12) 45%,
-    rgba(0, 0, 0, 0.45)
-  );
-}
-
-/* Grid tipis */
-
-.not-found-noise {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px
-    );
-  background-size: 36px 36px;
-
-  /* Hilangkan animasi jika ada aturan sebelumnya */
-  animation: none !important;
-}
-
-/* Konten */
-
-.not-found-content {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
-
-  animation: none !important;
-  transform: none !important;
-  opacity: 1 !important;
-}
-
-/* Label */
-
-.not-found-label {
-  margin: 0 0 20px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-/* Angka 404 */
-
-.not-found-number {
-  margin: 0;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(9rem, 28vw, 20rem);
-  font-weight: 900;
-  line-height: 0.78;
-  letter-spacing: -0.1em;
-  text-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
-}
-
-/* Garis tengah */
-
-.not-found-divider {
-  width: 100%;
-  max-width: 420px;
-  height: 1px;
-  margin: 42px auto 28px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.55),
-    transparent
-  );
-}
-
-/* Judul */
-
-.not-found-title {
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.not-found-title span {
-  color: #aaaaaa;
-}
-
-/* Deskripsi */
-
-.not-found-description {
-  max-width: 560px;
-  margin: 18px auto 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-/* Tombol */
-
-.not-found-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.not-found-button {
-  display: inline-flex;
-  min-width: 195px;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.not-found-button:hover {
-  transform: none !important;
-}
-
-.not-found-button-primary {
-  border-color: #ffffff;
-  background: #ffffff;
-  color: #080808;
-}
-
-.not-found-button-primary:hover {
-  background: #dddddd;
-}
-
-.not-found-button-secondary {
-  background: transparent;
-  color: #ffffff;
-}
-
-.not-found-button-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-/* Mobile */
-
-@media (max-width: 640px) {
-  .not-found-page {
-    padding: 32px 18px;
-  }
-
-  .not-found-number {
-    font-size: clamp(7rem, 30vw, 12rem);
-  }
-
-  .not-found-description {
-    font-size: 14px;
-  }
-
-  .not-found-actions {
-    flex-direction: column;
-  }
-
-  .not-found-button {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
-/* Matikan semua animasi pada halaman 404 */
-
-.not-found-page *,
-.not-found-page *::before,
-.not-found-page *::after {
-  animation: none !important;
-
-}
-
-.not-found-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 34px;
-}
-
-.not-found-button {
-  display: inline-flex;
-  min-width: 210px;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 24px;
-  border: 1px solid #ffffff;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.not-found-button:hover {
-  transform: none !important;
-}
-
-.not-found-button-primary {
-  background: #ffffff;
-  color: #080808;
-}
-
-.not-found-button-primary:hover {
-  background: #dddddd;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-  width: 100%;
-  position: relative;
-  background: #f8f8f6;
-  border-top: 1px solid #dfe5e8;
-
-  /* penting: jangan transparan */
-  opacity: 1;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-
-  padding: 28px 5% 22px;
-  margin-top: 0;
-  box-sizing: border-box;
-}
-
-/* DARK MODE */
-html.dark .footer {
-  background: #111315;
-  border-top-color: #292d30;
-  color: #f5f5f5;
-  opacity: 1;
-}
-
-/* isi utama footer */
-.footer-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-/* brand */
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.footer-brand h3 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-}
-
-.footer-brand p {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.5;
-  color: #777;
-}
-
-html.dark .footer-brand p {
-  color: #999;
-}
-
-/* link */
-.footer-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.footer-links a {
-  color: #555;
-  text-decoration: none;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: #42b8eb;
-}
-
-html.dark .footer-links a {
-  color: #aaa;
-}
-
-html.dark .footer-links a:hover {
-  color: #42b8eb;
-}
-
-/* social/contact */
-.footer-social {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.footer-social a {
-  color: #555;
-  text-decoration: none;
-  font-size: 11px;
-  transition: color 0.2s ease;
-}
-
-.footer-social a:hover {
-  color: #42b8eb;
-}
-
-html.dark .footer-social a {
-  color: #aaa;
-}
-
-html.dark .footer-social a:hover {
-  color: #42b8eb;
-}
-
-/* garis bawah */
-.footer-bottom {
-  width: 100%;
-  max-width: 1400px;
-  margin: 20px auto 0;
-  padding-top: 12px;
-
-  border-top: 1px solid #e1e5e7;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-html.dark .footer-bottom {
-  border-top-color: #292d30;
-}
-
-.footer-bottom p {
-  margin: 0;
-  font-size: 9px;
-  letter-spacing: 0.06em;
-  color: #888;
-}
-
-/* mobile */
-@media (max-width: 768px) {
-  .footer {
-    padding: 24px 20px 18px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 14px 20px;
-  }
-
-  .footer-social {
-    gap: 16px;
-  }
-
-  .footer-bottom {
-    margin-top: 18px;
-    padding-top: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-}
-
-/* =========================
-   SOLID FOOTER
-   ========================= */
-
-.footer {
-  background: #f8f8f6 !important;
-  opacity: 1 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  position: relative;
-  z-index: 10;
-}
-
-/* Dark Mode */
-html.dark .footer {
-  background: #111315 !important;
-  opacity: 1 !important;
-}
-
-/* =========================================================
-   FOOTER — SOLID BACKGROUND
-   ========================================================= */
-
-.site-footer,
-.about-footer,
-.projects-footer,
-.journey-footer {
-  position: relative;
-  z-index: 20;
-  background-color: #ffffff !important;
+html.dark .home-page,
+html.dark .home-page .hero,
+html.dark .home-page .home-focus,
+html.dark .home-page .home-focus-section,
+
+html.dark .about-page,
+html.dark .about-page .about-main,
+
+html.dark .projects-page,
+html.dark .projects-page .projects-content,
+
+html.dark .journey-page,
+html.dark .journey-page .journey-section {
+  background-color: transparent !important;
   background-image: none !important;
-  opacity: 1 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
 
-html.dark .site-footer,
-html.dark .about-footer,
-html.dark .projects-footer,
-html.dark .journey-footer {
+
+/* =========================================================
+   NAVBAR TETAP SOLID
+   Grid TIDAK BOLEH MASUK KE NAVBAR
+   ========================================================= */
+
+.navbar {
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+}
+
+html.dark .navbar {
   background-color: #111111 !important;
   background-image: none !important;
-  opacity: 1 !important;
-  border-color: #2a2a2a !important;
 }
 
+
 /* =========================================================
-   ABYANNZ — UNIFIED FOOTER
-   Semua halaman menggunakan footer yang sama
+   FOOTER TETAP SOLID
    ========================================================= */
 
 .site-footer {
-  width: 100%;
-  position: relative;
-  z-index: 50;
+  background-image: none !important;
+}
 
-  box-sizing: border-box;
+html.dark .site-footer {
+  background-image: none !important;
+}
 
+/* =========================================================
+   FIX FINAL — FOOTER HOME HARUS SOLID
+   Tidak transparan dan tidak mengikuti background halaman.
+   Berlaku untuk LIGHT + DARK.
+   ========================================================= */
+
+/* HOME LIGHT */
+.home-page .site-footer {
+  position: relative !important;
+  z-index: 100 !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  background: #f8f8f6 !important;
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  border-top: 1px solid #e2e2df !important;
+
+  isolation: isolate !important;
+}
+
+/* Bagian isi footer HOME */
+.home-page .site-footer .footer-bottom {
+  position: relative !important;
+  z-index: 101 !important;
+
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  background: #f8f8f6 !important;
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  border-top: none !important;
+}
+
+/* DARK MODE */
+html.dark .home-page .site-footer {
+  position: relative !important;
+  z-index: 100 !important;
+
+  background: #111111 !important;
+  background-color: #111111 !important;
+  background-image: none !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  border-top: 1px solid #2a2a2a !important;
+
+  isolation: isolate !important;
+}
+
+html.dark .home-page .site-footer .footer-bottom {
+  position: relative !important;
+  z-index: 101 !important;
+
+  background: #111111 !important;
+  background-color: #111111 !important;
+  background-image: none !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  border-top: none !important;
+}
+
+/* Pastikan pseudo-element tidak membuat footer transparan */
+.home-page .site-footer::before,
+.home-page .site-footer::after,
+.home-page .site-footer .footer-bottom::before,
+.home-page .site-footer .footer-bottom::after {
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* DARK pseudo-element */
+html.dark .home-page .site-footer::before,
+html.dark .home-page .site-footer::after,
+html.dark .home-page .site-footer .footer-bottom::before,
+html.dark .home-page .site-footer .footer-bottom::after {
+  background-image: none !important;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .home-page .site-footer {
+    width: 100% !important;
+    background: #f8f8f6 !important;
+    background-color: #f8f8f6 !important;
+  }
+
+  html.dark .home-page .site-footer {
+    background: #111111 !important;
+    background-color: #111111 !important;
+  }
+
+  .home-page .site-footer .footer-bottom {
+    background: #f8f8f6 !important;
+    background-color: #f8f8f6 !important;
+  }
+
+  html.dark .home-page .site-footer .footer-bottom {
+    background: #111111 !important;
+    background-color: #111111 !important;
+  }
+}
+
+/* =========================================================
+   FINAL FIX — HOME FOOTER = FOOTER HALAMAN LAIN
+   Tidak transparan.
+   Ukuran, warna, dan posisi mengikuti .site-footer utama.
+   ========================================================= */
+
+/* HOME LIGHT */
+html:not(.dark) .home-page > .site-footer {
+  width: 100% !important;
+  max-width: none !important;
+
+  position: relative !important;
+  z-index: 9999 !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 5vw !important;
+
+  background: #f8f8f6 !important;
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+
+  border-top: 1px solid #e2e2df !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* HOME DARK */
+html.dark .home-page > .site-footer {
+  width: 100% !important;
+  max-width: none !important;
+
+  position: relative !important;
+  z-index: 9999 !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 5vw !important;
+
+  background: #111111 !important;
+  background-color: #111111 !important;
+  background-image: none !important;
+
+  border-top: 1px solid #2a2a2a !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ISI FOOTER HOME — SAMA DENGAN FOOTER HALAMAN LAIN */
+.home-page > .site-footer .footer-bottom {
+  width: 100% !important;
+  max-width: none !important;
+
+  min-height: 58px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  gap: 9px !important;
+
+  box-sizing: border-box !important;
+
+  border-top: none !important;
+
+  background: transparent !important;
+}
+
+/* IDENTITAS */
+.home-page > .site-footer .footer-identity {
+  width: auto !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  align-items: center !important;
+  flex-wrap: wrap !important;
+
+  gap: 9px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.home-page > .site-footer .footer-identity strong {
+  display: inline !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #111111 !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+}
+
+.home-page > .site-footer .footer-identity span {
+  color: #777777 !important;
+  font-size: 9px !important;
+}
+
+.home-page > .site-footer .footer-dot {
+  color: #42b8eb !important;
+  margin: 0 !important;
+}
+
+/* COPYRIGHT */
+.home-page > .site-footer .footer-copyright {
+  width: auto !important;
+
+  flex-shrink: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 8px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.04em !important;
+
+  text-align: right !important;
+  text-transform: uppercase !important;
+
+  color: #777777 !important;
+}
+
+/* =========================================================
+   HOME DARK — TEKS FOOTER
+   ========================================================= */
+
+html.dark .home-page > .site-footer .footer-bottom {
+  background: transparent !important;
+}
+
+html.dark .home-page > .site-footer .footer-identity strong {
+  color: #f5f5f5 !important;
+}
+
+html.dark .home-page > .site-footer .footer-identity span {
+  color: #888888 !important;
+}
+
+html.dark .home-page > .site-footer .footer-dot {
+  color: #42b8eb !important;
+}
+
+html.dark .home-page > .site-footer .footer-copyright {
+  color: #888888 !important;
+}
+
+/* =========================================================
+   MOBILE — TETAP RAPI, TIDAK MEMBUAT FOOTER HOME BERBEDA
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  html:not(.dark) .home-page > .site-footer,
+  html.dark .home-page > .site-footer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    padding: 0 20px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  .home-page > .site-footer .footer-bottom {
+    width: 100% !important;
+    min-height: 64px !important;
+
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    gap: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-identity {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    font-size: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-identity strong {
+    font-size: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-identity span {
+    font-size: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-copyright {
+    width: 100% !important;
+
+    font-size: 6px !important;
+
+    text-align: left !important;
+  }
+}
+
+/* =========================================================
+   MATIKAN RULE LAMA YANG MEMBUAT FOOTER HOME TRANSPARAN
+   ========================================================= */
+
+html.dark .home-page footer {
+  background: #111111 !important;
+  background-color: #111111 !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+html:not(.dark) .home-page footer {
+  background: #f8f8f6 !important;
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   HOME FOOTER — SOLID + UKURAN LEBIH BESAR
+   ========================================================= */
+
+html:not(.dark) .home-page > .site-footer {
+  width: 100% !important;
+  max-width: none !important;
+
+  position: relative !important;
+  z-index: 9999 !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 5vw !important;
+
+  background: #f8f8f6 !important;
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+
+  border-top: 1px solid #e2e2df !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.dark .home-page > .site-footer {
+  width: 100% !important;
+  max-width: none !important;
+
+  position: relative !important;
+  z-index: 9999 !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 5vw !important;
+
+  background: #111111 !important;
+  background-color: #111111 !important;
+  background-image: none !important;
+
+  border-top: 1px solid #2a2a2a !important;
+
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+
+/* =========================================================
+   HOME FOOTER CONTENT
+   ========================================================= */
+
+.home-page > .site-footer .footer-bottom {
+  width: 100% !important;
+  max-width: none !important;
+
+  /* LEBIH TINGGI SEPERTI FOOTER HOME YANG KAMU SUKA */
+  min-height: 82px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  box-sizing: border-box !important;
+
+  border-top: none !important;
+}
+
+
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+.home-page > .site-footer .footer-identity {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+
+  gap: 9px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.home-page > .site-footer .footer-identity strong {
+  color: #111111 !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+}
+
+.home-page > .site-footer .footer-identity span {
+  color: #777777 !important;
+  font-size: 9px !important;
+}
+
+.home-page > .site-footer .footer-dot {
+  color: #42b8eb !important;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+   ========================================================= */
+
+.home-page > .site-footer .footer-copyright {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 8px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.04em !important;
+
+  text-align: right !important;
+  text-transform: uppercase !important;
+
+  color: #777777 !important;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark .home-page > .site-footer .footer-bottom {
+  background: transparent !important;
+}
+
+html.dark .home-page > .site-footer .footer-identity strong {
+  color: #f5f5f5 !important;
+}
+
+html.dark .home-page > .site-footer .footer-identity span {
+  color: #888888 !important;
+}
+
+html.dark .home-page > .site-footer .footer-dot {
+  color: #42b8eb !important;
+}
+
+html.dark .home-page > .site-footer .footer-copyright {
+  color: #888888 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  html:not(.dark) .home-page > .site-footer,
+  html.dark .home-page > .site-footer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+
+    margin-left: calc(50% - 50vw) !important;
+
+    padding: 0 20px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  .home-page > .site-footer .footer-bottom {
+    min-height: 82px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+  }
+
+  .home-page > .site-footer .footer-identity {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    font-size: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-identity strong {
+    font-size: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-identity span {
+    font-size: 7px !important;
+  }
+
+  .home-page > .site-footer .footer-copyright {
+    width: 100% !important;
+
+    font-size: 6px !important;
+
+    text-align: left !important;
+  }
+}
+
+
+/* =========================================================
+   PASTIKAN HOME TIDAK PERNAH TRANSPARAN
+   ========================================================= */
+
+html.dark .home-page footer {
+  background: #111111 !important;
+  background-color: #111111 !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+html:not(.dark) .home-page footer {
+  background: #f8f8f6 !important;
+  background-color: #f8f8f6 !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   FINAL FOOTER FIX
+   SEMUA HALAMAN = UKURAN FOOTER SEPERTI HOME
+   JANGAN LETAKKAN CSS LAIN SETELAH BLOK INI
+   ========================================================= */
+
+.site-footer,
+.home-page > .site-footer,
+.about-page > .site-footer,
+.projects-page > .site-footer,
+.journey-page > .site-footer {
+  width: 100% !important;
+  max-width: none !important;
+
+  position: relative !important;
+  z-index: 100 !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+  padding: 0 5vw !important;
+
+  min-height: 0 !important;
+
+  background: #f8f8f6 !important;
   background-color: #f8f8f6 !important;
   background-image: none !important;
 
@@ -25794,157 +24046,737 @@ html.dark .journey-footer {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 
-  padding: 0 5vw !important;
-  margin: 0 !important;
+  overflow: visible !important;
 }
 
-/* Isi footer */
-.site-footer .footer-bottom {
-  width: 100%;
+
+/* =========================================================
+   FOOTER CONTENT
+   ========================================================= */
+
+.site-footer .footer-bottom,
+.home-page > .site-footer .footer-bottom,
+.about-page > .site-footer .footer-bottom,
+.projects-page > .site-footer .footer-bottom,
+.journey-page > .site-footer .footer-bottom {
+  width: 100% !important;
   max-width: none !important;
 
-  min-height: 58px;
+  min-height: 82px !important;
+
+  margin: 0 !important;
+  padding: 14px 0 !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  gap: 20px !important;
+
+  border-top: none !important;
+
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+.site-footer .footer-identity,
+.home-page > .site-footer .footer-identity,
+.about-page > .site-footer .footer-identity,
+.projects-page > .site-footer .footer-identity,
+.journey-page > .site-footer .footer-identity {
+  width: auto !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+
+  align-items: center !important;
+
+  gap: 8px !important;
 
   margin: 0 !important;
   padding: 0 !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif !important;
 
-  border-top: none !important;
+  font-size: 8px !important;
+  line-height: 1.4 !important;
 
-  color: #777777;
-  box-sizing: border-box;
-}
+  letter-spacing: 0.02em !important;
 
-/* Identitas */
-.site-footer .footer-identity {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 9px;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-}
-
-.site-footer .footer-identity strong {
-  color: #111111 !important;
-  font-weight: 700;
-}
-
-.site-footer .footer-identity span {
   color: #777777 !important;
 }
 
-.site-footer .footer-dot {
+
+.site-footer .footer-identity strong,
+.home-page > .site-footer .footer-identity strong,
+.about-page > .site-footer .footer-identity strong,
+.projects-page > .site-footer .footer-identity strong,
+.journey-page > .site-footer .footer-identity strong {
+  display: inline-block !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #111111 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+
+  font-size: 8px !important;
+  font-weight: 700 !important;
+
+  line-height: 1.4 !important;
+}
+
+
+.site-footer .footer-identity span,
+.home-page > .site-footer .footer-identity span,
+.about-page > .site-footer .footer-identity span,
+.projects-page > .site-footer .footer-identity span,
+.journey-page > .site-footer .footer-identity span {
+  color: #777777 !important;
+
+  font-size: 8px !important;
+}
+
+
+.site-footer .footer-dot,
+.home-page > .site-footer .footer-dot,
+.about-page > .site-footer .footer-dot,
+.projects-page > .site-footer .footer-dot,
+.journey-page > .site-footer .footer-dot {
   color: #42b8eb !important;
+
+  font-size: 8px !important;
+
   margin: 0 !important;
 }
 
-/* Copyright */
-.site-footer .footer-copyright {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 8px;
-  line-height: 1.4;
 
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+/* =========================================================
+   COPYRIGHT
+   ========================================================= */
+
+.site-footer .footer-copyright,
+.home-page > .site-footer .footer-copyright,
+.about-page > .site-footer .footer-copyright,
+.projects-page > .site-footer .footer-copyright,
+.journey-page > .site-footer .footer-copyright {
+  width: auto !important;
+
+  flex-shrink: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+
+  font-size: 7px !important;
+  line-height: 1.4 !important;
+
+  letter-spacing: 0.04em !important;
+
+  text-transform: uppercase !important;
+
+  text-align: right !important;
 
   color: #777777 !important;
-
-  text-align: right;
 }
+
 
 /* =========================================================
    DARK MODE
    ========================================================= */
 
-html.dark .site-footer {
+html.dark .site-footer,
+html.dark .home-page > .site-footer,
+html.dark .about-page > .site-footer,
+html.dark .projects-page > .site-footer,
+html.dark .journey-page > .site-footer {
+  background: #111111 !important;
   background-color: #111111 !important;
   background-image: none !important;
 
   border-top-color: #2a2a2a !important;
 
-  color: #888888 !important;
-
   opacity: 1 !important;
+
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
 
-html.dark .site-footer .footer-bottom {
-  background-color: #111111 !important;
+
+html.dark .site-footer .footer-bottom,
+html.dark .home-page > .site-footer .footer-bottom,
+html.dark .about-page > .site-footer .footer-bottom,
+html.dark .projects-page > .site-footer .footer-bottom,
+html.dark .journey-page > .site-footer .footer-bottom {
+  background: transparent !important;
+  background-color: transparent !important;
+
   color: #888888 !important;
 }
 
-html.dark .site-footer .footer-identity strong {
+
+html.dark .site-footer .footer-identity strong,
+html.dark .home-page > .site-footer .footer-identity strong,
+html.dark .about-page > .site-footer .footer-identity strong,
+html.dark .projects-page > .site-footer .footer-identity strong,
+html.dark .journey-page > .site-footer .footer-identity strong {
   color: #f5f5f5 !important;
 }
 
-html.dark .site-footer .footer-identity span {
+
+html.dark .site-footer .footer-identity span,
+html.dark .home-page > .site-footer .footer-identity span,
+html.dark .about-page > .site-footer .footer-identity span,
+html.dark .projects-page > .site-footer .footer-identity span,
+html.dark .journey-page > .site-footer .footer-identity span {
   color: #888888 !important;
 }
 
-html.dark .site-footer .footer-dot {
+
+html.dark .site-footer .footer-dot,
+html.dark .home-page > .site-footer .footer-dot,
+html.dark .about-page > .site-footer .footer-dot,
+html.dark .projects-page > .site-footer .footer-dot,
+html.dark .journey-page > .site-footer .footer-dot {
   color: #42b8eb !important;
 }
 
-html.dark .site-footer .footer-copyright {
+
+html.dark .site-footer .footer-copyright,
+html.dark .home-page > .site-footer .footer-copyright,
+html.dark .about-page > .site-footer .footer-copyright,
+html.dark .projects-page > .site-footer .footer-copyright,
+html.dark .journey-page > .site-footer .footer-copyright {
   color: #888888 !important;
 }
 
+
 /* =========================================================
-   MOBILE
+   MOBILE — 375px
    ========================================================= */
 
 @media (max-width: 600px) {
-  .site-footer {
-    padding: 0 20px !important;
+
+  .site-footer,
+  .home-page > .site-footer,
+  .about-page > .site-footer,
+  .projects-page > .site-footer,
+  .journey-page > .site-footer {
+    width: 100% !important;
+
+    padding: 0 17px !important;
+
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
   }
 
-  .site-footer .footer-bottom {
-    min-height: 64px;
 
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+  .site-footer .footer-bottom,
+  .home-page > .site-footer .footer-bottom,
+  .about-page > .site-footer .footer-bottom,
+  .projects-page > .site-footer .footer-bottom,
+  .journey-page > .site-footer .footer-bottom {
+    width: 100% !important;
 
-    gap: 7px;
+    min-height: 82px !important;
+
+    padding: 13px 0 !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
   }
 
-  .site-footer .footer-identity {
-    width: 100%;
 
-    flex-wrap: wrap;
+  .site-footer .footer-identity,
+  .home-page > .site-footer .footer-identity,
+  .about-page > .site-footer .footer-identity,
+  .projects-page > .site-footer .footer-identity,
+  .journey-page > .site-footer .footer-identity {
+    width: 100% !important;
 
-    font-size: 7px;
+    display: flex !important;
+
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    font-size: 7px !important;
   }
 
-  .site-footer .footer-copyright {
-    font-size: 6px;
-    text-align: left;
+
+  .site-footer .footer-identity strong,
+  .home-page > .site-footer .footer-identity strong,
+  .about-page > .site-footer .footer-identity strong,
+  .projects-page > .site-footer .footer-identity strong,
+  .journey-page > .site-footer .footer-identity strong {
+    font-size: 7px !important;
+  }
+
+
+  .site-footer .footer-identity span,
+  .home-page > .site-footer .footer-identity span,
+  .about-page > .site-footer .footer-identity span,
+  .projects-page > .site-footer .footer-identity span,
+  .journey-page > .site-footer .footer-identity span {
+    font-size: 7px !important;
+  }
+
+
+  .site-footer .footer-dot,
+  .home-page > .site-footer .footer-dot,
+  .about-page > .site-footer .footer-dot,
+  .projects-page > .site-footer .footer-dot,
+  .journey-page > .site-footer .footer-dot {
+    font-size: 7px !important;
+  }
+
+
+  .site-footer .footer-copyright,
+  .home-page > .site-footer .footer-copyright,
+  .about-page > .site-footer .footer-copyright,
+  .projects-page > .site-footer .footer-copyright,
+  .journey-page > .site-footer .footer-copyright {
+    width: 100% !important;
+
+    font-size: 6px !important;
+
+    line-height: 1.4 !important;
+
+    text-align: left !important;
   }
 }
 
 /* =========================================================
-   ABOUT — HILANGKAN GAP SEBELUM FOOTER
+   FINAL — FOOTER RESPONSIVE 375PX
+   Semua halaman mengikuti footer Home yang lebih lega
    ========================================================= */
 
-.about-page,
-.about-page-wrapper {
+@media screen and (max-width: 600px) {
+
+  .site-footer,
+  .home-page .site-footer,
+  .about-page .site-footer,
+  .projects-page .site-footer,
+  .journey-page .site-footer {
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 82px !important;
+
+    margin: 0 !important;
+    padding: 0 17px !important;
+
+    box-sizing: border-box !important;
+
+    background-image: none !important;
+
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .site-footer .footer-bottom,
+  .home-page .site-footer .footer-bottom,
+  .about-page .site-footer .footer-bottom,
+  .projects-page .site-footer .footer-bottom,
+  .journey-page .site-footer .footer-bottom {
+    width: 100% !important;
+
+    min-height: 82px !important;
+
+    margin: 0 !important;
+    padding: 13px 0 !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    background: transparent !important;
+  }
+
+  .site-footer .footer-identity,
+  .home-page .site-footer .footer-identity,
+  .about-page .site-footer .footer-identity,
+  .projects-page .site-footer .footer-identity,
+  .journey-page .site-footer .footer-identity {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-identity strong,
+  .home-page .site-footer .footer-identity strong,
+  .about-page .site-footer .footer-identity strong,
+  .projects-page .site-footer .footer-identity strong,
+  .journey-page .site-footer .footer-identity strong {
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-identity span,
+  .home-page .site-footer .footer-identity span,
+  .about-page .site-footer .footer-identity span,
+  .projects-page .site-footer .footer-identity span,
+  .journey-page .site-footer .footer-identity span {
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-dot,
+  .home-page .site-footer .footer-dot,
+  .about-page .site-footer .footer-dot,
+  .projects-page .site-footer .footer-dot,
+  .journey-page .site-footer .footer-dot {
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-copyright,
+  .home-page .site-footer .footer-copyright,
+  .about-page .site-footer .footer-copyright,
+  .projects-page .site-footer .footer-copyright,
+  .journey-page .site-footer .footer-copyright {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 6px !important;
+
+    line-height: 1.4 !important;
+
+    text-align: left !important;
+  }
+
+  /* LIGHT */
+  html:not(.dark) .site-footer,
+  html:not(.dark) .home-page .site-footer,
+  html:not(.dark) .about-page .site-footer,
+  html:not(.dark) .projects-page .site-footer,
+  html:not(.dark) .journey-page .site-footer {
+    background-color: #f8f8f6 !important;
+    background: #f8f8f6 !important;
+
+    border-top: 1px solid #e2e2df !important;
+  }
+
+  /* DARK */
+  html.dark .site-footer,
+  html.dark .home-page .site-footer,
+  html.dark .about-page .site-footer,
+  html.dark .projects-page .site-footer,
+  html.dark .journey-page .site-footer {
+    background-color: #111111 !important;
+    background: #111111 !important;
+
+    border-top: 1px solid #2a2a2a !important;
+  }
+}
+
+/* =========================================================
+   FINAL FOOTER FIX
+   DESKTOP DIKEMBALIKAN
+   MOBILE 375px DISAMAKAN
+   ========================================================= */
+
+/* =========================================================
+   DESKTOP / TABLET
+   KEMBALIKAN FOOTER SITE KE UKURAN NORMAL
+   ========================================================= */
+
+@media (min-width: 601px) {
+  .site-footer {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 5vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .site-footer .footer-bottom {
+    width: 100% !important;
+    min-height: 58px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE 375px
+   SEMUA FOOTER = UKURAN FOOTER HOME
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* SEMUA JENIS FOOTER */
+  .site-footer,
+  .about-footer,
+  .projects-footer,
+  .journey-footer {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 82px !important;
+
+    margin: 0 !important;
+    box-sizing: border-box !important;
+
+    padding: 0 17px !important;
+  }
+
+  /* ISI SITE FOOTER */
+  .site-footer .footer-bottom {
+    width: 100% !important;
+    min-height: 82px !important;
+
+    margin: 0 !important;
+    padding: 13px 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* FOOTER PROJECTS / ABOUT / JOURNEY */
+  .about-footer,
+  .projects-footer,
+  .journey-footer {
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    padding: 13px 17px !important;
+    min-height: 82px !important;
+
+    box-sizing: border-box !important;
+  }
+
+
+  /* =====================================================
+     LIGHT
+     ===================================================== */
+
+  html:not(.dark) .site-footer,
+  html:not(.dark) .about-footer,
+  html:not(.dark) .projects-footer,
+  html:not(.dark) .journey-footer {
+    background: #f8f8f6 !important;
+    background-color: #f8f8f6 !important;
+    background-image: none !important;
+
+    border-top: 1px solid #e2e2df !important;
+  }
+
+
+  /* =====================================================
+     DARK
+     ===================================================== */
+
+  html.dark .site-footer,
+  html.dark .about-footer,
+  html.dark .projects-footer,
+  html.dark .journey-footer {
+    background: #111111 !important;
+    background-color: #111111 !important;
+    background-image: none !important;
+
+    border-top: 1px solid #2a2a2a !important;
+  }
+
+
+  /* =====================================================
+     TEKS SITE FOOTER
+     ===================================================== */
+
+  .site-footer .footer-identity {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-identity strong {
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-identity span {
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-dot {
+    font-size: 7px !important;
+  }
+
+  .site-footer .footer-copyright {
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 6px !important;
+    line-height: 1.4 !important;
+
+    text-align: left !important;
+  }
+}
+
+/* =========================================================
+   FIX JARAK FOTO → WHAT I DO
+   MOBILE ONLY — LIGHT & DARK
+   DESKTOP TIDAK DISENTUH
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+  .home-page .home-focus,
+  html.dark .home-page .home-focus {
+    margin-top: -310px !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* =========================================================
+   MOBILE HOME PHOTO
+   DARK = PATOKAN UKURAN
+   LIGHT MENGIKUTI DARK
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+  .home-page .portrait,
+  html.dark .home-page .portrait {
+    width: 100% !important;
+    height: 520px !important;
+    min-height: 520px !important;
+    max-height: 520px !important;
+
+    aspect-ratio: auto !important;
+
+    object-fit: cover !important;
+    object-position: center 25% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* =========================================================
+   ABOUT — MARQUEE LANGSUNG KE FOOTER
+   ========================================================= */
+
+/* Footer About adalah sibling dari section ini, bukan .site-footer. */
+.about-page-wrapper > .about-page {
+  min-height: auto !important;
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 }
 
-.about-page .about-marquee {
-  margin-bottom: 0 !important;
+.about-page-wrapper > .about-footer {
+  margin-top: 0 !important;
+  min-height: 55px;
 }
 
-.about-page .about-marquee ~ .site-footer,
-.about-page-wrapper .site-footer {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+html:not(.dark) .about-page-wrapper > .about-footer {
+  background: #fff;
+}
+
+/* About berada di bawah navbar yang fixed. */
+.about-page-wrapper > .about-page {
+  padding-top: 98px !important;
+}
+
+@media (max-width: 768px) {
+  .about-page-wrapper > .about-page {
+    padding-top: 78px !important;
+  }
+}
+
+/* Hero Home light harus transparan agar grid body terlihat. */
+html:not(.dark) .home-page,
+html:not(.dark) .home-page .hero,
+html:not(.dark) .home-page .home-focus,
+html:not(.dark) .home-page .home-focus-section {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Navbar Home harus tetap di viewport saat halaman discroll. */
+.home-page {
+  padding-top: 104px;
+  clip-path: none !important;
+}
+
+.home-page > .navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+}
+
+html:not(.dark) .home-page > .hero,
+html.dark .home-page > .hero {
+  margin-top: clamp(36px, 3.5vw, 56px) !important;
 }
