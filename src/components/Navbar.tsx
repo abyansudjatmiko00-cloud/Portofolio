@@ -8,7 +8,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const [darkMode, setDarkMode] = useState(false);
+
+  // BUKAN KHUSUS MOBILE
+  // Digunakan untuk animasi perpindahan tema
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // BAGIAN MOBILE
+  // Menyimpan status apakah menu mobile sedang terbuka atau tertutup
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -23,6 +29,8 @@ export default function Navbar() {
     }
   }, []);
 
+  // BERKAITAN DENGAN MOBILE
+  // Ketika pindah halaman, menu mobile otomatis ditutup
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -61,7 +69,10 @@ export default function Navbar() {
         ABYANNZ.
       </Link>
 
+      {/* BAGIAN NAVBAR MOBILE */}
+      {/* mobile-open akan ditambahkan ketika menuOpen = true */}
       <nav className={`navbar-menu ${menuOpen ? "mobile-open" : ""}`}>
+
         <Link
           href="/"
           className={pathname === "/" ? "active" : ""}
@@ -89,10 +100,13 @@ export default function Navbar() {
         >
           JOURNEY
         </Link>
+
       </nav>
 
       <div className="navbar-actions">
 
+        {/*  TOMBOL DARK/LIGHT
+            Bukan tombol pembuka menu mobile */}
         <button
           type="button"
           className={`theme-toggle ${darkMode ? "dark-active" : ""}`}
@@ -113,6 +127,8 @@ export default function Navbar() {
           <span className="theme-moon">☾</span>
         </button>
 
+        {/*TOMBOL MOBILE
+            Tombol ☰ / × untuk membuka dan menutup menu */}
         <button
           type="button"
           className={`profile-button ${menuOpen ? "menu-active" : ""}`}

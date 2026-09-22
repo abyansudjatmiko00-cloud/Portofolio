@@ -1,8 +1,44 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import { proyek } from "@/data/proyek";
+import { supabase } from "@/lib/supabase";
 
-export default function Projects() {
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  technologies: string | string[] | null;
+  link?: string | null;
+}
+
+function formatTechnologies(
+  technologies: string | string[] | null
+): string[] {
+  if (!technologies) return [];
+
+  if (Array.isArray(technologies)) {
+    return technologies;
+  }
+
+  return technologies
+    .split(",")
+    .map((technology) => technology.trim())
+    .filter(Boolean);
+}
+
+export default async function Projects() {
+  const { data: proyek, error } = await supabase
+    .from("proyek")
+    .select("*")
+    .order("id", { ascending: true });
+
+  if (error) {
+    console.error("Error fetching projects:", error);
+  }
+
+  const projects: Project[] = proyek ?? [];
+
   return (
     <main className="projects-page">
       {/* NAVIGATION */}
@@ -12,7 +48,6 @@ export default function Projects() {
       <section className="projects-content">
         {/* TOP LABEL */}
         <div className="projects-top">
-
           <div className="projects-archive">
             ARCHIVE — 2024 / 2026
             <span>•</span>
@@ -60,67 +95,72 @@ export default function Projects() {
           className="projects-grid"
           id="project-list"
         >
-          {proyek.map((project, index) => (
-            <article
-              className="project-item"
-              key={project.id}
-            >
-              {/* IMAGE */}
-              <div className="project-image">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                />
+          {projects.map((project, index) => {
+            const technologies = formatTechnologies(
+              project.technologies
+            );
 
-                <span className="project-image-label">
-                  {project.category.toUpperCase()} // 2026
-                </span>
-              </div>
+            return (
+              <article
+                className="project-item"
+                key={project.id}
+              >
+                {/* IMAGE */}
+                <div className="project-image">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                  />
 
-              {/* INFORMATION */}
-              <div className="project-info">
-                <div className="project-meta">
-                  <span>
-                    {String(index + 1).padStart(2, "0")}
+                  <span className="project-image-label">
+                    {project.category.toUpperCase()} // 2026
                   </span>
-
-                  <small>
-                    {project.category.toUpperCase()}
-                  </small>
                 </div>
 
-                <h2>{project.title}</h2>
+                {/* INFORMATION */}
+                <div className="project-info">
+                  <div className="project-meta">
+                    <span>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                <p>{project.description}</p>
-
-                <div className="project-bottom">
-                  {/* TECHNOLOGIES */}
-                  <div className="project-tech">
-                    {project.technologies.map((technology) => (
-                      <span key={technology}>
-                        {technology}
-                      </span>
-                    ))}
+                    <small>
+                      {project.category.toUpperCase()}
+                    </small>
                   </div>
 
-                  {/* DYNAMIC ROUTING */}
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="project-link"
-                  >
-                    VIEW PROJECT
-                    <span>↗</span>
-                  </Link>
+                  <h2>{project.title}</h2>
+
+                  <p>{project.description}</p>
+
+                  <div className="project-bottom">
+                    {/* TECHNOLOGIES */}
+                    <div className="project-tech">
+                      {technologies.map((technology) => (
+                        <span key={technology}>
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* DYNAMIC ROUTING */}
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="project-link"
+                    >
+                      VIEW PROJECT
+                      <span>↗</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
         {/* BOTTOM NAVIGATION */}
         <div className="projects-navigation">
           <div className="projects-progress">
-            
             <small>
               PROJECT ARCHIVE • SELECTED WORKS
             </small>
