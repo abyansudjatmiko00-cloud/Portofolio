@@ -105,8 +105,7 @@ export default function Navbar() {
 
       <div className="navbar-actions">
 
-        {/*  TOMBOL DARK/LIGHT
-            Bukan tombol pembuka menu mobile */}
+        {/*  TOMBOL DARK/LIGHT */}
         <button
           type="button"
           className={`theme-toggle ${darkMode ? "dark-active" : ""}`}
