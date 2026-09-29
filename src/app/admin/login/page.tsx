@@ -29,64 +29,95 @@ export default async function AdminLoginPage({
   const params = await searchParams;
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-slate-100">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-slate-800 mb-2">
-          Admin Login
-        </h1>
+    <main className="min-h-screen bg-white text-slate-900 flex items-center justify-center px-6 relative overflow-hidden">
+      {/* Background Grid */}
+      <div
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
 
-        <p className="text-slate-500 text-sm mb-6">
-          Sign in to manage your portfolio
-        </p>
-
-        {params.error && (
-          <p className="text-red-600 text-sm mb-4 bg-red-50 p-3 rounded-lg">
-            {params.error}
+      {/* Login Card */}
+      <div className="relative z-10 w-full max-w-md">
+        {/* Brand */}
+        <div className="mb-8">
+          <p className="text-xs tracking-[0.25em] uppercase text-slate-400 mb-3">
+            Abyannz. / Admin
           </p>
-        )}
 
-        <form action={loginAction} className="space-y-4">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-slate-700 mb-1"
+          <h1 className="text-4xl font-bold tracking-tight text-slate-900">
+            Welcome back.
+          </h1>
+
+          <p className="mt-3 text-sm text-slate-500">
+            Sign in to manage the projects displayed on your portfolio.
+          </p>
+        </div>
+
+        {/* Card */}
+        <div className="bg-white/95 backdrop-blur-sm border border-slate-200 rounded-2xl p-7 shadow-xl shadow-slate-200/50">
+          {params.error && (
+            <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+              <p className="text-sm text-red-600">
+                {params.error}
+              </p>
+            </div>
+          )}
+
+          <form action={loginAction} className="space-y-5">
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2"
+              >
+                Email
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
+                placeholder="admin@example.com"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2"
+              >
+                Password
+              </label>
+
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10"
+                placeholder="••••••••"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-slate-900 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-700 active:scale-[0.99]"
             >
-              Email
-            </label>
+              Sign In →
+            </button>
+          </form>
+        </div>
 
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Password
-            </label>
-
-            <input
-              id="password"
-              name="password"
-              type="password"
-              required
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-          >
-            Sign In
-          </button>
-        </form>
+        {/* Footer */}
+        <div className="mt-6 flex items-center justify-between text-xs text-slate-400">
+          <span>© 2026 Abyannz.</span>
+          <span>Portfolio Management</span>
+        </div>
       </div>
     </main>
   );

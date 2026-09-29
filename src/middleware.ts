@@ -31,9 +31,21 @@ export async function middleware(request: NextRequest) {
   const isAdminPage = request.nextUrl.pathname.startsWith("/admin");
   const isLoginPage = request.nextUrl.pathname === "/admin/login";
 
+  // Doorpass untuk halaman login admin
+  const doorpass = request.nextUrl.searchParams.get("doorpass");
+  const correctDoorpass = process.env.ADMIN_DOORPASS;
+
+  if (isLoginPage && doorpass !== correctDoorpass) {
+    return new NextResponse("Access Denied", {
+      status: 403,
+    });
+  }
+
+  // Proteksi halaman admin dengan Supabase Auth
   if (isAdminPage && !isLoginPage && !user) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin/login";
+    url.search = "";
 
     return NextResponse.redirect(url);
   }

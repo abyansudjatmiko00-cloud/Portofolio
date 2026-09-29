@@ -68,140 +68,242 @@ export default async function EditProyekPage({
   const updateAction = updateProyekAction.bind(null, projectId);
 
   return (
-    <div className="max-w-3xl">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate-800">
-          Edit Project
-        </h1>
+    <div className="relative min-h-screen overflow-hidden bg-white text-slate-900">
+      {/* Background Grid */}
+      <div
+        className="fixed inset-0 pointer-events-none opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
 
-        <p className="text-sm text-slate-500 mt-1">
-          Update the information of this project.
-        </p>
-      </div>
+      <div className="relative z-10 space-y-10">
+        {/* Header */}
+        <div className="border-b border-slate-200 pb-8">
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                Abyannz. / Admin / Projects / Edit
+              </p>
 
-      <div className="bg-white rounded-2xl border border-slate-200 p-6">
-        <form action={updateAction} className="space-y-5">
-          <div>
-            <label
-              htmlFor="title"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Project Title
-            </label>
+              <h1 className="text-5xl font-black tracking-tight text-slate-950">
+                EDIT PROJECT.
+              </h1>
 
-            <input
-              id="title"
-              name="title"
-              defaultValue={proyek.title}
-              required
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-500">
+                Update the information and details of this project.
+                Changes will automatically appear on your public portfolio.
+              </p>
+            </div>
+
+            <div className="hidden border-l border-slate-200 pl-6 text-right sm:block">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                PROJECT ID
+              </p>
+
+              <p className="mt-2 font-mono text-3xl font-bold text-slate-900">
+                {String(projectId).padStart(2, "0")}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Current Project */}
+        <div className="grid gap-6 lg:grid-cols-[0.35fr_1fr]">
+          <div className="border border-slate-200 bg-white/80 p-6 backdrop-blur-sm">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+              Editing
+            </p>
+
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
+              {proyek.title}
+            </h2>
+
+            <div className="mt-6 space-y-3 border-t border-slate-200 pt-5 text-xs text-slate-500">
+              <div className="flex justify-between gap-4">
+                <span>Category</span>
+                <span className="font-semibold text-slate-800">
+                  {proyek.category}
+                </span>
+              </div>
+
+              <div className="flex justify-between gap-4">
+                <span>Database</span>
+                <span className="font-semibold text-slate-800">
+                  Supabase
+                </span>
+              </div>
+
+              <div className="flex justify-between gap-4">
+                <span>Status</span>
+                <span className="font-semibold text-emerald-600">
+                  ● Connected
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <label
-              htmlFor="category"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Category
-            </label>
+          {/* Form */}
+          <div className="border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-200/30 backdrop-blur-sm sm:p-8">
+            <div className="mb-8 flex items-center justify-between border-b border-slate-200 pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  Project Information
+                </p>
 
-            <input
-              id="category"
-              name="category"
-              defaultValue={proyek.category}
-              required
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+                <h2 className="mt-1 text-xl font-bold text-slate-900">
+                  Update Entry
+                </h2>
+              </div>
+
+              <span className="font-mono text-xs text-slate-400">
+                PATCH / proyek
+              </span>
+            </div>
+
+            <form action={updateAction} className="space-y-7">
+              {/* Title */}
+              <div>
+                <label
+                  htmlFor="title"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
+                >
+                  01 / Project Title
+                </label>
+
+                <input
+                  id="title"
+                  name="title"
+                  defaultValue={proyek.title}
+                  required
+                  className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-lg font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
+                />
+              </div>
+
+              {/* Category */}
+              <div>
+                <label
+                  htmlFor="category"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
+                >
+                  02 / Category
+                </label>
+
+                <input
+                  id="category"
+                  name="category"
+                  defaultValue={proyek.category}
+                  required
+                  className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label
+                  htmlFor="description"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
+                >
+                  03 / Description
+                </label>
+
+                <textarea
+                  id="description"
+                  name="description"
+                  defaultValue={proyek.description}
+                  required
+                  rows={6}
+                  className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm leading-6 text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-slate-900 focus:bg-white focus:ring-4 focus:ring-slate-900/5"
+                />
+              </div>
+
+              {/* Technologies */}
+              <div>
+                <label
+                  htmlFor="technologies"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
+                >
+                  04 / Technologies
+                </label>
+
+                <input
+                  id="technologies"
+                  name="technologies"
+                  defaultValue={proyek.technologies ?? ""}
+                  placeholder="Next.js, Supabase, TypeScript"
+                  required
+                  className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
+                />
+              </div>
+
+              {/* Image */}
+              <div>
+                <label
+                  htmlFor="image"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
+                >
+                  05 / Image URL
+                </label>
+
+                <input
+                  id="image"
+                  name="image"
+                  defaultValue={proyek.image}
+                  required
+                  className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
+                />
+              </div>
+
+              {/* Link */}
+              <div>
+                <label
+                  htmlFor="link"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
+                >
+                  06 / Project Link
+                </label>
+
+                <input
+                  id="link"
+                  name="link"
+                  type="url"
+                  defaultValue={proyek.link ?? ""}
+                  placeholder="https://example.vercel.app"
+                  className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
+                />
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-3 border-t border-slate-200 pt-7 sm:flex-row">
+                <button
+                  type="submit"
+                  className="group flex flex-1 items-center justify-center gap-3 rounded-xl bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-slate-700 active:scale-[0.99]"
+                >
+                  Update Project
+                  <span className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </button>
+
+                <a
+                  href="/admin/proyek"
+                  className="flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50"
+                >
+                  Cancel
+                </a>
+              </div>
+            </form>
           </div>
+        </div>
 
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Description
-            </label>
-
-            <textarea
-              id="description"
-              name="description"
-              defaultValue={proyek.description}
-              required
-              rows={5}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="technologies"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Technologies
-            </label>
-
-            <input
-              id="technologies"
-              name="technologies"
-              defaultValue={proyek.technologies ?? ""}
-              placeholder="Next.js, Supabase, TypeScript"
-              required
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="image"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Image URL
-            </label>
-
-            <input
-              id="image"
-              name="image"
-              defaultValue={proyek.image}
-              required
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="link"
-              className="block text-sm font-medium text-slate-700 mb-1"
-            >
-              Project Link
-            </label>
-
-            <input
-              id="link"
-              name="link"
-              type="url"
-              defaultValue={proyek.link ?? ""}
-              placeholder="https://example.vercel.app"
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div className="flex gap-3 pt-2">
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-            >
-              Update Project
-            </button>
-
-            <a
-              href="/admin/proyek"
-              className="bg-slate-100 text-slate-700 px-5 py-2.5 rounded-lg font-medium hover:bg-slate-200 transition-colors"
-            >
-              Cancel
-            </a>
-          </div>
-        </form>
+        {/* Bottom Note */}
+        <div className="border-t border-slate-200 py-6">
+          <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-slate-400">
+            Changes are synchronized with Supabase and the public portfolio.
+          </p>
+        </div>
       </div>
     </div>
   );
