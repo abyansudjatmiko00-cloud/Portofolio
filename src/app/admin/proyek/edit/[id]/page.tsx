@@ -380,7 +380,7 @@ export default async function EditProyekPage({
                   the existing image.
                 </p>
 
-                <ImageUploadField />
+                <ImageUploadField required={false} />
               </div>
 
               {/* Link */}

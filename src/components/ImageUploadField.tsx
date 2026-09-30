@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-export default function ImageUploadField() {
+interface ImageUploadFieldProps {
+  required?: boolean;
+}
+
+export default function ImageUploadField({
+  required = true,
+}: ImageUploadFieldProps) {
   const [fileName, setFileName] = useState("");
   const [fileSize, setFileSize] = useState("");
 
@@ -30,7 +36,9 @@ export default function ImageUploadField() {
         {fileName ? (
           <>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-green-600">✓</span>
+              <span className="text-sm font-bold text-green-600">
+                ✓
+              </span>
 
               <p className="truncate text-sm font-semibold text-slate-800">
                 {fileName}
@@ -63,7 +71,7 @@ export default function ImageUploadField() {
         name="image"
         type="file"
         accept="image/png,image/jpeg,image/webp"
-        required
+        required={required}
         onChange={handleChange}
         className="hidden"
       />
