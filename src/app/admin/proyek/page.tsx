@@ -1,4 +1,5 @@
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import Link from "next/link";
 import ImageUploadField from "@/components/ImageUploadField";
@@ -14,27 +15,44 @@ async function tambahProyekAction(formData: FormData) {
   const technologies = formData.get("technologies") as string;
   const link = (formData.get("link") as string) || null;
 
-  // ================= IMAGE UPLOAD =================
+  console.log("=== ADD PROJECT START ===");
+  console.log("Title:", title);
+  console.log("Category:", category);
+
+  // ================= IMAGE =================
+
   const imageFile = formData.get("image") as File;
 
   if (!imageFile || imageFile.size === 0) {
+    console.error("No image selected.");
     throw new Error("Project image is required.");
   }
 
-  // Only allow image files
+  console.log("Image:", imageFile.name);
+  console.log("Image size:", imageFile.size);
+  console.log("Image type:", imageFile.type);
+
   if (!imageFile.type.startsWith("image/")) {
+    console.error("Selected file is not an image.");
     throw new Error("The selected file must be an image.");
   }
 
-  // Maximum 5 MB
   if (imageFile.size > 5 * 1024 * 1024) {
+    console.error("Image is larger than 5 MB.");
     throw new Error("Image size must be less than 5 MB.");
   }
 
-  // Create unique file name
-  const fileExtension = imageFile.name.split(".").pop() || "jpg";
+  // ================= CREATE FILE PATH =================
+
+  const fileExtension =
+    imageFile.name.split(".").pop()?.toLowerCase() || "jpg";
+
   const fileName = `${crypto.randomUUID()}.${fileExtension}`;
   const filePath = `projects/${fileName}`;
+
+  console.log("Uploading image to:", filePath);
+
+  // ================= UPLOAD IMAGE =================
 
   const { error: uploadError } = await supabase.storage
     .from("project-images")
@@ -44,45 +62,77 @@ async function tambahProyekAction(formData: FormData) {
     });
 
   if (uploadError) {
-    console.error("Failed to upload image:", uploadError.message);
+    console.error(
+      "STORAGE UPLOAD ERROR:",
+      uploadError.message
+    );
+
     throw new Error(
       `Failed to upload image: ${uploadError.message}`
     );
   }
 
-  // Get public image URL
+  console.log("Image upload successful.");
+
+  // ================= GET PUBLIC URL =================
+
   const {
     data: { publicUrl },
   } = supabase.storage
     .from("project-images")
     .getPublicUrl(filePath);
 
+  console.log("Public image URL created.");
+
   // ================= INSERT PROJECT =================
 
-  const { error } = await supabase.from("proyek").insert({
-    title,
-    description,
-    category,
-    image: publicUrl,
-    technologies,
-    link,
-  });
+  console.log("Inserting project into Supabase...");
 
-  if (error) {
-    console.error("Failed to add project:", error.message);
+  const { error: insertError } = await supabase
+    .from("proyek")
+    .insert({
+      title,
+      description,
+      category,
+      image: publicUrl,
+      technologies,
+      link,
+    });
+
+  if (insertError) {
+    console.error(
+      "DATABASE INSERT ERROR:",
+      insertError.message
+    );
 
     // Remove uploaded image if database insert fails
-    await supabase.storage
+    const { error: removeError } = await supabase.storage
       .from("project-images")
       .remove([filePath]);
 
+    if (removeError) {
+      console.error(
+        "FAILED TO REMOVE IMAGE:",
+        removeError.message
+      );
+    }
+
     throw new Error(
-      `Failed to add project: ${error.message}`
+      `Failed to add project: ${insertError.message}`
     );
   }
 
+  console.log("Project inserted successfully.");
+
+  // ================= REFRESH DATA =================
+
   revalidatePath("/admin/proyek");
   revalidatePath("/projects");
+
+  console.log("=== ADD PROJECT SUCCESS ===");
+
+  // Redirect after successful submission
+  redirect("/admin/proyek");
 }
 
 export default async function AdminProyekPage() {
@@ -92,10 +142,13 @@ export default async function AdminProyekPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const { data: daftarProyek, error: fetchError } = await supabase
+  const {
+    data: daftarProyek,
+    error: fetchError,
+  } = await supabase
     .from("proyek")
     .select("*")
-    .order("id", { ascending: true });
+    .order("id", { ascending: false });
 
   if (fetchError) {
     console.error(
@@ -226,7 +279,7 @@ export default async function AdminProyekPage() {
             </div>
 
             <p className="text-xs text-slate-400 uppercase tracking-wider">
-              {projectCount} entries / sorted by ID
+              {projectCount} entries / newest first
             </p>
           </div>
 
@@ -267,11 +320,15 @@ export default async function AdminProyekPage() {
                             className="text-[10px] uppercase tracking-wider text-slate-400"
                           >
                             {tech.trim()}
+
                             {techIndex <
-                              String(proyek.technologies).split(",")
-                                .length -
+                              String(
+                                proyek.technologies
+                              ).split(",").length -
                                 1 && (
-                              <span className="ml-2">/</span>
+                              <span className="ml-2">
+                                /
+                              </span>
                             )}
                           </span>
                         ))}
