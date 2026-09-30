@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import Link from "next/link";
+import ImageUploadField from "@/components/ImageUploadField";
 
 async function tambahProyekAction(formData: FormData) {
   "use server";
@@ -10,22 +11,74 @@ async function tambahProyekAction(formData: FormData) {
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const category = formData.get("category") as string;
-  const image = formData.get("image") as string;
   const technologies = formData.get("technologies") as string;
   const link = (formData.get("link") as string) || null;
+
+  // ================= IMAGE UPLOAD =================
+  const imageFile = formData.get("image") as File;
+
+  if (!imageFile || imageFile.size === 0) {
+    throw new Error("Project image is required.");
+  }
+
+  // Only allow image files
+  if (!imageFile.type.startsWith("image/")) {
+    throw new Error("The selected file must be an image.");
+  }
+
+  // Maximum 5 MB
+  if (imageFile.size > 5 * 1024 * 1024) {
+    throw new Error("Image size must be less than 5 MB.");
+  }
+
+  // Create unique file name
+  const fileExtension = imageFile.name.split(".").pop() || "jpg";
+  const fileName = `${crypto.randomUUID()}.${fileExtension}`;
+  const filePath = `projects/${fileName}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from("project-images")
+    .upload(filePath, imageFile, {
+      contentType: imageFile.type,
+      upsert: false,
+    });
+
+  if (uploadError) {
+    console.error("Failed to upload image:", uploadError.message);
+    throw new Error(
+      `Failed to upload image: ${uploadError.message}`
+    );
+  }
+
+  // Get public image URL
+  const {
+    data: { publicUrl },
+  } = supabase.storage
+    .from("project-images")
+    .getPublicUrl(filePath);
+
+  // ================= INSERT PROJECT =================
 
   const { error } = await supabase.from("proyek").insert({
     title,
     description,
     category,
-    image,
+    image: publicUrl,
     technologies,
     link,
   });
 
   if (error) {
     console.error("Failed to add project:", error.message);
-    throw new Error(`Failed to add project: ${error.message}`);
+
+    // Remove uploaded image if database insert fails
+    await supabase.storage
+      .from("project-images")
+      .remove([filePath]);
+
+    throw new Error(
+      `Failed to add project: ${error.message}`
+    );
   }
 
   revalidatePath("/admin/proyek");
@@ -45,7 +98,10 @@ export default async function AdminProyekPage() {
     .order("id", { ascending: true });
 
   if (fetchError) {
-    console.error("Failed to fetch projects:", fetchError.message);
+    console.error(
+      "Failed to fetch projects:",
+      fetchError.message
+    );
   }
 
   const projectCount = daftarProyek?.length ?? 0;
@@ -85,16 +141,18 @@ export default async function AdminProyekPage() {
                 <h1 className="text-5xl md:text-7xl font-black tracking-[-0.06em] leading-[0.9]">
                   PROJECT
                   <br />
-                  <span className="text-slate-400">MANAGEMENT.</span>
+                  <span className="text-slate-400">
+                    MANAGEMENT.
+                  </span>
                 </h1>
 
                 <p className="max-w-xl mt-6 text-sm md:text-base leading-7 text-slate-500">
-                  Manage, update, and organize the projects displayed across
-                  your portfolio through the admin workspace.
+                  Manage, update, and organize the projects
+                  displayed across your portfolio through the
+                  admin workspace.
                 </p>
               </div>
 
-              {/* Project Counter */}
               <div className="border-2 border-slate-950 bg-slate-950 text-white rounded-2xl p-6 min-w-[190px]">
                 <p className="text-[10px] uppercase tracking-[0.25em] text-slate-400">
                   Total Projects
@@ -179,14 +237,12 @@ export default async function AdminProyekPage() {
                 className="group relative border border-slate-200 bg-white/90 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-950 hover:shadow-xl hover:shadow-slate-200/50"
               >
                 <div className="grid grid-cols-[64px_1fr] md:grid-cols-[90px_1fr_auto] items-stretch">
-                  {/* Number */}
                   <div className="flex items-center justify-center border-r border-slate-200 bg-slate-50 group-hover:bg-slate-950 transition-colors duration-300">
                     <span className="font-mono text-xs text-slate-400 group-hover:text-white transition-colors">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  {/* Project Information */}
                   <div className="p-5 md:p-6">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
                       <h3 className="text-xl md:text-2xl font-bold tracking-tight">
@@ -212,14 +268,16 @@ export default async function AdminProyekPage() {
                           >
                             {tech.trim()}
                             {techIndex <
-                              String(proyek.technologies).split(",").length -
-                                1 && <span className="ml-2">/</span>}
+                              String(proyek.technologies).split(",")
+                                .length -
+                                1 && (
+                              <span className="ml-2">/</span>
+                            )}
                           </span>
                         ))}
                     </div>
                   </div>
 
-                  {/* Actions */}
                   <div className="col-span-2 md:col-span-1 border-t md:border-t-0 md:border-l border-slate-200 p-4 md:p-5 flex items-center gap-2 md:flex-col md:justify-center">
                     <Link
                       href={`/admin/proyek/edit/${proyek.id}`}
@@ -239,7 +297,8 @@ export default async function AdminProyekPage() {
               </div>
             ))}
 
-            {(!daftarProyek || daftarProyek.length === 0) && (
+            {(!daftarProyek ||
+              daftarProyek.length === 0) && (
               <div className="border-2 border-dashed border-slate-300 rounded-2xl p-16 text-center">
                 <p className="text-sm text-slate-400">
                   No projects found.
@@ -268,7 +327,6 @@ export default async function AdminProyekPage() {
           </div>
 
           <div className="border-2 border-slate-950 rounded-3xl overflow-hidden bg-white">
-            {/* Form Header */}
             <div className="bg-slate-950 text-white px-6 md:px-8 py-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                 <div>
@@ -287,9 +345,11 @@ export default async function AdminProyekPage() {
               </div>
             </div>
 
-            {/* Form */}
             <div className="p-6 md:p-8">
-              <form action={tambahProyekAction} className="space-y-7">
+              <form
+                action={tambahProyekAction}
+                className="space-y-7"
+              >
                 {/* Title + Category */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -366,23 +426,19 @@ export default async function AdminProyekPage() {
 
                 {/* Image + Link */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* IMAGE UPLOAD */}
                   <div>
                     <label
                       htmlFor="image"
                       className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-3"
                     >
-                      Image URL
+                      Project Image
                     </label>
 
-                    <input
-                      id="image"
-                      name="image"
-                      required
-                      placeholder="/images/projects/example.png"
-                      className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm font-medium text-slate-950 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-950"
-                    />
+                    <ImageUploadField />
                   </div>
 
+                  {/* PROJECT LINK */}
                   <div>
                     <label
                       htmlFor="link"
@@ -404,8 +460,9 @@ export default async function AdminProyekPage() {
                 {/* Submit */}
                 <div className="pt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                   <p className="text-xs text-slate-400 max-w-sm">
-                    This project will be stored in Supabase and displayed on
-                    the public portfolio after creation.
+                    The selected image will be uploaded to
+                    Supabase Storage and automatically connected
+                    to this project.
                   </p>
 
                   <button
@@ -413,6 +470,7 @@ export default async function AdminProyekPage() {
                     className="group inline-flex items-center justify-center gap-3 rounded-full bg-slate-950 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-slate-700 active:scale-[0.98]"
                   >
                     Add Project
+
                     <span className="transition-transform group-hover:translate-x-1">
                       →
                     </span>

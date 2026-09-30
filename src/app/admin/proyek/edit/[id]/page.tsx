@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
+import ImageUploadField from "@/components/ImageUploadField";
 
 async function updateProyekAction(
   id: number,
@@ -13,9 +14,102 @@ async function updateProyekAction(
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const category = formData.get("category") as string;
-  const image = formData.get("image") as string;
   const technologies = formData.get("technologies") as string;
   const link = (formData.get("link") as string) || null;
+
+  const imageFile = formData.get("image") as File;
+
+  // Get current project
+  const { data: currentProject, error: currentProjectError } =
+    await supabase
+      .from("proyek")
+      .select("image")
+      .eq("id", id)
+      .single();
+
+  if (currentProjectError || !currentProject) {
+    throw new Error("Project not found.");
+  }
+
+  let imageUrl = currentProject.image;
+
+  // Only upload a new image if the user selected one
+  if (imageFile && imageFile.size > 0) {
+    if (!imageFile.type.startsWith("image/")) {
+      throw new Error("The selected file must be an image.");
+    }
+
+    if (imageFile.size > 5 * 1024 * 1024) {
+      throw new Error("Image size must be less than 5 MB.");
+    }
+
+    const fileExtension =
+      imageFile.name.split(".").pop() || "jpg";
+
+    const fileName = `${crypto.randomUUID()}.${fileExtension}`;
+    const filePath = `projects/${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from("project-images")
+      .upload(filePath, imageFile, {
+        contentType: imageFile.type,
+        upsert: false,
+      });
+
+    if (uploadError) {
+      console.error(
+        "Failed to upload new image:",
+        uploadError.message
+      );
+
+      throw new Error(
+        `Failed to upload image: ${uploadError.message}`
+      );
+    }
+
+    const { data: publicUrlData } = supabase.storage
+      .from("project-images")
+      .getPublicUrl(filePath);
+
+    imageUrl = publicUrlData.publicUrl;
+
+    // Remove old image from Storage if it belongs to our bucket
+    if (currentProject.image) {
+      try {
+        const oldImageUrl = new URL(currentProject.image);
+
+        const marker = "/storage/v1/object/public/project-images/";
+
+        const markerIndex = oldImageUrl.pathname.indexOf(marker);
+
+        if (markerIndex !== -1) {
+          const oldFilePath = decodeURIComponent(
+            oldImageUrl.pathname.slice(
+              markerIndex + marker.length
+            )
+          );
+
+          if (oldFilePath) {
+            const { error: removeError } = await supabase.storage
+              .from("project-images")
+              .remove([oldFilePath]);
+
+            if (removeError) {
+              console.error(
+                "Failed to remove old image:",
+                removeError.message
+              );
+            }
+          }
+        }
+      } catch (error) {
+        console.error(
+          "Failed to process old image URL:",
+          error
+        );
+      }
+    }
+  }
 
   const { error } = await supabase
     .from("proyek")
@@ -23,19 +117,26 @@ async function updateProyekAction(
       title,
       description,
       category,
-      image,
+      image: imageUrl,
       technologies,
       link,
     })
     .eq("id", id);
 
   if (error) {
-    console.error("Failed to update project:", error.message);
-    return;
+    console.error(
+      "Failed to update project:",
+      error.message
+    );
+
+    throw new Error(
+      `Failed to update project: ${error.message}`
+    );
   }
 
   revalidatePath("/admin/proyek");
   revalidatePath("/projects");
+  revalidatePath(`/projects/${id}`);
 
   redirect("/admin/proyek");
 }
@@ -65,7 +166,8 @@ export default async function EditProyekPage({
     notFound();
   }
 
-  const updateAction = updateProyekAction.bind(null, projectId);
+  const updateAction =
+    updateProyekAction.bind(null, projectId);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-900">
@@ -93,8 +195,9 @@ export default async function EditProyekPage({
               </h1>
 
               <p className="mt-4 max-w-xl text-sm leading-6 text-slate-500">
-                Update the information and details of this project.
-                Changes will automatically appear on your public portfolio.
+                Update the information and details of this
+                project. Changes will automatically appear on
+                your public portfolio.
               </p>
             </div>
 
@@ -124,6 +227,7 @@ export default async function EditProyekPage({
             <div className="mt-6 space-y-3 border-t border-slate-200 pt-5 text-xs text-slate-500">
               <div className="flex justify-between gap-4">
                 <span>Category</span>
+
                 <span className="font-semibold text-slate-800">
                   {proyek.category}
                 </span>
@@ -131,6 +235,7 @@ export default async function EditProyekPage({
 
               <div className="flex justify-between gap-4">
                 <span>Database</span>
+
                 <span className="font-semibold text-slate-800">
                   Supabase
                 </span>
@@ -138,6 +243,7 @@ export default async function EditProyekPage({
 
               <div className="flex justify-between gap-4">
                 <span>Status</span>
+
                 <span className="font-semibold text-emerald-600">
                   ● Connected
                 </span>
@@ -244,16 +350,37 @@ export default async function EditProyekPage({
                   htmlFor="image"
                   className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
                 >
-                  05 / Image URL
+                  05 / Project Image
                 </label>
 
-                <input
-                  id="image"
-                  name="image"
-                  defaultValue={proyek.image}
-                  required
-                  className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
-                />
+                {/* Current Image */}
+                <div className="mb-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                  <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
+                      Current Image
+                    </p>
+
+                    <span className="text-[10px] font-semibold text-emerald-600">
+                      ● Active
+                    </span>
+                  </div>
+
+                  <div className="p-4">
+                    <img
+                      src={proyek.image}
+                      alt={proyek.title}
+                      className="h-48 w-full rounded-xl object-cover"
+                    />
+                  </div>
+                </div>
+
+                <p className="mb-3 text-xs text-slate-400">
+                  Select a new image only if you want to replace
+                  the current image. Leave it unchanged to keep
+                  the existing image.
+                </p>
+
+                <ImageUploadField />
               </div>
 
               {/* Link */}
@@ -282,6 +409,7 @@ export default async function EditProyekPage({
                   className="group flex flex-1 items-center justify-center gap-3 rounded-xl bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-slate-700 active:scale-[0.99]"
                 >
                   Update Project
+
                   <span className="transition-transform group-hover:translate-x-1">
                     →
                   </span>
@@ -301,7 +429,8 @@ export default async function EditProyekPage({
         {/* Bottom Note */}
         <div className="border-t border-slate-200 py-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-slate-400">
-            Changes are synchronized with Supabase and the public portfolio.
+            Changes are synchronized with Supabase and the
+            public portfolio.
           </p>
         </div>
       </div>
