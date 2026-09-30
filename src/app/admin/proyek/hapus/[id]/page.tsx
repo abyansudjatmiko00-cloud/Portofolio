@@ -20,7 +20,7 @@ async function hapusProyekAction(id: number) {
   revalidatePath("/admin/proyek");
   revalidatePath("/projects");
 
-  redirect("/admin/proyek");
+  redirect("/admin/proyek?success=deleted");
 }
 
 export default async function HapusProyekPage({

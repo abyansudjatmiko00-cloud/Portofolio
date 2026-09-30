@@ -19,13 +19,16 @@ async function updateProyekAction(
 
   const imageFile = formData.get("image") as File;
 
-  // Get current project
-  const { data: currentProject, error: currentProjectError } =
-    await supabase
-      .from("proyek")
-      .select("image")
-      .eq("id", id)
-      .single();
+  // ================= GET CURRENT PROJECT =================
+
+  const {
+    data: currentProject,
+    error: currentProjectError,
+  } = await supabase
+    .from("proyek")
+    .select("image")
+    .eq("id", id)
+    .single();
 
   if (currentProjectError || !currentProject) {
     throw new Error("Project not found.");
@@ -33,14 +36,20 @@ async function updateProyekAction(
 
   let imageUrl = currentProject.image;
 
+  // ================= IMAGE UPDATE =================
+
   // Only upload a new image if the user selected one
   if (imageFile && imageFile.size > 0) {
     if (!imageFile.type.startsWith("image/")) {
-      throw new Error("The selected file must be an image.");
+      throw new Error(
+        "The selected file must be an image."
+      );
     }
 
     if (imageFile.size > 5 * 1024 * 1024) {
-      throw new Error("Image size must be less than 5 MB.");
+      throw new Error(
+        "Image size must be less than 5 MB."
+      );
     }
 
     const fileExtension =
@@ -48,6 +57,8 @@ async function updateProyekAction(
 
     const fileName = `${crypto.randomUUID()}.${fileExtension}`;
     const filePath = `projects/${fileName}`;
+
+    // ================= UPLOAD NEW IMAGE =================
 
     const { error: uploadError } = await supabase.storage
       .from("project-images")
@@ -67,20 +78,27 @@ async function updateProyekAction(
       );
     }
 
+    // ================= GET NEW PUBLIC URL =================
+
     const { data: publicUrlData } = supabase.storage
       .from("project-images")
       .getPublicUrl(filePath);
 
     imageUrl = publicUrlData.publicUrl;
 
-    // Remove old image from Storage if it belongs to our bucket
+    // ================= REMOVE OLD IMAGE =================
+
     if (currentProject.image) {
       try {
-        const oldImageUrl = new URL(currentProject.image);
+        const oldImageUrl = new URL(
+          currentProject.image
+        );
 
-        const marker = "/storage/v1/object/public/project-images/";
+        const marker =
+          "/storage/v1/object/public/project-images/";
 
-        const markerIndex = oldImageUrl.pathname.indexOf(marker);
+        const markerIndex =
+          oldImageUrl.pathname.indexOf(marker);
 
         if (markerIndex !== -1) {
           const oldFilePath = decodeURIComponent(
@@ -90,9 +108,10 @@ async function updateProyekAction(
           );
 
           if (oldFilePath) {
-            const { error: removeError } = await supabase.storage
-              .from("project-images")
-              .remove([oldFilePath]);
+            const { error: removeError } =
+              await supabase.storage
+                .from("project-images")
+                .remove([oldFilePath]);
 
             if (removeError) {
               console.error(
@@ -110,6 +129,8 @@ async function updateProyekAction(
       }
     }
   }
+
+  // ================= UPDATE DATABASE =================
 
   const { error } = await supabase
     .from("proyek")
@@ -134,11 +155,15 @@ async function updateProyekAction(
     );
   }
 
+  // ================= REFRESH DATA =================
+
   revalidatePath("/admin/proyek");
   revalidatePath("/projects");
   revalidatePath(`/projects/${id}`);
 
-  redirect("/admin/proyek");
+  // ================= SUCCESS REDIRECT =================
+
+  redirect("/admin/proyek?success=updated");
 }
 
 export default async function EditProyekPage({
@@ -156,6 +181,8 @@ export default async function EditProyekPage({
 
   const supabase = await createSupabaseServerClient();
 
+  // ================= GET PROJECT =================
+
   const { data: proyek } = await supabase
     .from("proyek")
     .select("*")
@@ -171,7 +198,8 @@ export default async function EditProyekPage({
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-900">
-      {/* Background Grid */}
+      {/* ================= BACKGROUND GRID ================= */}
+
       <div
         className="fixed inset-0 pointer-events-none opacity-40"
         style={{
@@ -182,7 +210,8 @@ export default async function EditProyekPage({
       />
 
       <div className="relative z-10 space-y-10">
-        {/* Header */}
+        {/* ================= HEADER ================= */}
+
         <div className="border-b border-slate-200 pb-8">
           <div className="flex items-start justify-between gap-6">
             <div>
@@ -213,7 +242,8 @@ export default async function EditProyekPage({
           </div>
         </div>
 
-        {/* Current Project */}
+        {/* ================= CURRENT PROJECT ================= */}
+
         <div className="grid gap-6 lg:grid-cols-[0.35fr_1fr]">
           <div className="border border-slate-200 bg-white/80 p-6 backdrop-blur-sm">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
@@ -251,7 +281,8 @@ export default async function EditProyekPage({
             </div>
           </div>
 
-          {/* Form */}
+          {/* ================= FORM ================= */}
+
           <div className="border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-200/30 backdrop-blur-sm sm:p-8">
             <div className="mb-8 flex items-center justify-between border-b border-slate-200 pb-5">
               <div>
@@ -269,8 +300,12 @@ export default async function EditProyekPage({
               </span>
             </div>
 
-            <form action={updateAction} className="space-y-7">
-              {/* Title */}
+            <form
+              action={updateAction}
+              className="space-y-7"
+            >
+              {/* ================= TITLE ================= */}
+
               <div>
                 <label
                   htmlFor="title"
@@ -288,7 +323,8 @@ export default async function EditProyekPage({
                 />
               </div>
 
-              {/* Category */}
+              {/* ================= CATEGORY ================= */}
+
               <div>
                 <label
                   htmlFor="category"
@@ -306,7 +342,8 @@ export default async function EditProyekPage({
                 />
               </div>
 
-              {/* Description */}
+              {/* ================= DESCRIPTION ================= */}
+
               <div>
                 <label
                   htmlFor="description"
@@ -325,7 +362,8 @@ export default async function EditProyekPage({
                 />
               </div>
 
-              {/* Technologies */}
+              {/* ================= TECHNOLOGIES ================= */}
+
               <div>
                 <label
                   htmlFor="technologies"
@@ -344,7 +382,8 @@ export default async function EditProyekPage({
                 />
               </div>
 
-              {/* Image */}
+              {/* ================= IMAGE ================= */}
+
               <div>
                 <label
                   htmlFor="image"
@@ -354,6 +393,7 @@ export default async function EditProyekPage({
                 </label>
 
                 {/* Current Image */}
+
                 <div className="mb-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
                   <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
                     <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
@@ -383,7 +423,8 @@ export default async function EditProyekPage({
                 <ImageUploadField required={false} />
               </div>
 
-              {/* Link */}
+              {/* ================= LINK ================= */}
+
               <div>
                 <label
                   htmlFor="link"
@@ -402,7 +443,8 @@ export default async function EditProyekPage({
                 />
               </div>
 
-              {/* Actions */}
+              {/* ================= ACTIONS ================= */}
+
               <div className="flex flex-col gap-3 border-t border-slate-200 pt-7 sm:flex-row">
                 <button
                   type="submit"
@@ -426,7 +468,8 @@ export default async function EditProyekPage({
           </div>
         </div>
 
-        {/* Bottom Note */}
+        {/* ================= BOTTOM NOTE ================= */}
+
         <div className="border-t border-slate-200 py-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-slate-400">
             Changes are synchronized with Supabase and the

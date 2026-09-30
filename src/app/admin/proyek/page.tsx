@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import Link from "next/link";
 import ImageUploadField from "@/components/ImageUploadField";
+import SuccessToast from "@/components/SuccessToast";
 
 async function tambahProyekAction(formData: FormData) {
   "use server";
@@ -132,15 +133,41 @@ async function tambahProyekAction(formData: FormData) {
   console.log("=== ADD PROJECT SUCCESS ===");
 
   // Redirect after successful submission
-  redirect("/admin/proyek");
+  redirect("/admin/proyek?success=added");
 }
 
-export default async function AdminProyekPage() {
+export default async function AdminProyekPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ success?: string }>;
+}) {
+  const { success } = await searchParams;
+
+  // ================= SUCCESS MESSAGE =================
+
+  let successMessage = "";
+
+  if (success === "added") {
+    successMessage = "Project added successfully!";
+  }
+
+  if (success === "updated") {
+    successMessage = "Project updated successfully!";
+  }
+
+  if (success === "deleted") {
+    successMessage = "Project deleted successfully!";
+  }
+
+  // ================= SUPABASE =================
+
   const supabase = await createSupabaseServerClient();
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  // ================= GET PROJECTS =================
 
   const {
     data: daftarProyek,
@@ -162,6 +189,7 @@ export default async function AdminProyekPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-950">
       {/* ================= BACKGROUND ================= */}
+
       <div
         className="fixed inset-0 pointer-events-none opacity-50"
         style={{
@@ -172,7 +200,14 @@ export default async function AdminProyekPage() {
       />
 
       <div className="relative z-10 space-y-12">
+        {/* ================= SUCCESS TOAST ================= */}
+
+        {successMessage && (
+          <SuccessToast message={successMessage} />
+        )}
+
         {/* ================= HERO HEADER ================= */}
+
         <section className="border-b-2 border-slate-950 pb-8">
           <div className="flex flex-col gap-8">
             <div className="flex items-center justify-between">
@@ -226,6 +261,7 @@ export default async function AdminProyekPage() {
         </section>
 
         {/* ================= ADMIN INFO ================= */}
+
         <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="border border-slate-200 bg-white/90 rounded-2xl p-5">
             <p className="text-[10px] uppercase tracking-[0.25em] text-slate-400">
@@ -260,6 +296,7 @@ export default async function AdminProyekPage() {
         </section>
 
         {/* ================= PROJECT LIST ================= */}
+
         <section>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
             <div className="flex gap-5 items-start">
@@ -366,6 +403,7 @@ export default async function AdminProyekPage() {
         </section>
 
         {/* ================= CREATE PROJECT ================= */}
+
         <section className="pb-12">
           <div className="flex gap-5 items-start mb-6">
             <span className="text-5xl md:text-6xl font-black tracking-[-0.08em] text-slate-200 leading-none">
@@ -408,6 +446,7 @@ export default async function AdminProyekPage() {
                 className="space-y-7"
               >
                 {/* Title + Category */}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -445,6 +484,7 @@ export default async function AdminProyekPage() {
                 </div>
 
                 {/* Description */}
+
                 <div>
                   <label
                     htmlFor="description"
@@ -464,6 +504,7 @@ export default async function AdminProyekPage() {
                 </div>
 
                 {/* Technologies */}
+
                 <div>
                   <label
                     htmlFor="technologies"
@@ -482,8 +523,10 @@ export default async function AdminProyekPage() {
                 </div>
 
                 {/* Image + Link */}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* IMAGE UPLOAD */}
+
                   <div>
                     <label
                       htmlFor="image"
@@ -496,6 +539,7 @@ export default async function AdminProyekPage() {
                   </div>
 
                   {/* PROJECT LINK */}
+
                   <div>
                     <label
                       htmlFor="link"
@@ -515,6 +559,7 @@ export default async function AdminProyekPage() {
                 </div>
 
                 {/* Submit */}
+
                 <div className="pt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                   <p className="text-xs text-slate-400 max-w-sm">
                     The selected image will be uploaded to
