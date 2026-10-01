@@ -1,6 +1,23 @@
 import Navbar from "@/components/Navbar";
+import { supabase } from "@/lib/supabase";
 
-export default function Journey() {
+interface Memory {
+  id: number;
+  category: string;
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+export default async function Journey() {
+  const { data: memories } = await supabase
+    .from("memories")
+    .select("*")
+    .order("id", { ascending: true });
+
+  const memoryData: Memory[] = memories ?? [];
+
   return (
     <main className="journey-page">
       <Navbar />
@@ -10,11 +27,8 @@ export default function Journey() {
       ========================= */}
 
       <section className="journey-section journey-timeline">
-
         <div className="journey-heading-row">
-
           <div>
-          
             <h1>
               My journey
               <br />
@@ -26,20 +40,16 @@ export default function Journey() {
             Tracing the chronological cadence of discipline,
             development paradigms, and extracurricular leadership.
           </p>
-
         </div>
-
 
         {/* TIMELINE */}
 
         <div className="timeline">
-
           <div className="timeline-line"></div>
 
           {/* 2024 */}
 
           <article className="timeline-item">
-
             <div className="timeline-dot">
               <span></span>
             </div>
@@ -49,16 +59,14 @@ export default function Journey() {
             <h2>Genesis</h2>
 
             <p>
-              Start exploring web development, the fundamentals of algorithms, and modern programming.
+              Start exploring web development, the fundamentals of
+              algorithms, and modern programming.
             </p>
-
           </article>
-
 
           {/* 2025 */}
 
           <article className="timeline-item">
-
             <div className="timeline-dot dark">
               <span></span>
             </div>
@@ -68,16 +76,14 @@ export default function Journey() {
             <h2>Construction</h2>
 
             <p>
-              Start creating real projects and delving into the modern frontend ecosystem based on components.
+              Start creating real projects and delving into the modern
+              frontend ecosystem based on components.
             </p>
-
           </article>
-
 
           {/* 2026 */}
 
           <article className="timeline-item">
-
             <div className="timeline-dot">
               <span></span>
             </div>
@@ -90,14 +96,11 @@ export default function Journey() {
               Currently continuously improving capabilities in Next.js,
               Tailwind CSS, UI/UX architecture, and full-stack agility.
             </p>
-
           </article>
-
 
           {/* PASKIBRA */}
 
           <article className="timeline-item">
-
             <div className="timeline-dot grey">
               <span></span>
             </div>
@@ -110,14 +113,11 @@ export default function Journey() {
               Member of the school's Paskibra unit; honing leadership,
               drill formations, and mental resilience.
             </p>
-
           </article>
-
 
           {/* LKBB */}
 
           <article className="timeline-item">
-
             <div className="timeline-dot">
               <span></span>
             </div>
@@ -127,26 +127,20 @@ export default function Journey() {
             <h2>LKBB / LPBB</h2>
 
             <p>
-              Actively participated in regional drill competitions and fostered team cohesion within the contingent.
+              Actively participated in regional drill competitions and
+              fostered team cohesion within the contingent.
             </p>
-
           </article>
-
         </div>
-
       </section>
-
 
       {/* =========================
           04 — ACHIEVEMENTS
       ========================= */}
 
       <section className="journey-section achievements-section">
-
         <div className="achievements-heading">
-
           <div>
-
             <div className="journey-label">
               <span>04</span>
               <i></i>
@@ -158,12 +152,9 @@ export default function Journey() {
               <br />
               <em>Memories.</em>
             </h1>
-
           </div>
 
-
           <div className="moments-card">
-
             <small>PERSPECTIVE</small>
 
             <h2>
@@ -173,165 +164,59 @@ export default function Journey() {
             </h2>
 
             <p>
-              Certificates, competition documentation, and valuable moments
-              throughout my journey of pushing the boundaries of discipline
-              and technology.
+              Certificates, competition documentation, and valuable
+              moments throughout my journey of pushing the boundaries
+              of discipline and technology.
             </p>
 
             <a href="/journey/archives">
-                VIEW ALL ARCHIVES
-            <span>→</span>
+              VIEW ALL ARCHIVES
+              <span>→</span>
             </a>
-
           </div>
-
         </div>
-
 
         {/* =========================
             MEMORY CARDS
         ========================= */}
 
         <div className="memory-grid" id="memories">
+          {memoryData.map((memory) => (
+            <article className="memory-card" key={memory.id}>
+              <div
+                className={`memory-image ${
+                  memory.category === "ACHIEVEMENT"
+                    ? "certificate-memory"
+                    : ""
+                }`}
+              >
+                <img
+                  src={memory.image}
+                  alt={memory.title}
+                />
 
+                <span>{memory.category}</span>
+              </div>
 
-          {/* 01 — PRAMUKA */}
+              <div className="memory-info">
+                <small>{memory.label}</small>
 
-          <article className="memory-card">
+                <h2>{memory.title}</h2>
 
-            <div className="memory-image">
-
-              <img
-                src="/images/pramukasmkn1pasuruan.jpeg"
-                alt="Kegiatan Pramuka"
-              />
-
-              <span>PRAMUKA</span>
-
-            </div>
-
-            <div className="memory-info">
-
-              <small>SCOUT ACTIVITIES</small>
-
-              <h2>Moving Forward Together</h2>
-
-              <p>
-                Experience in organizing, working in teams,
-                and building discipline through Scout activities.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          {/* 02 — PASKIB */}
-
-          <article className="memory-card">
-
-            <div className="memory-image">
-
-              <img
-                src="/images/Paskib.jpeg"
-                alt="Kegiatan Paskib"
-              />
-
-              <span>PASKIBRA</span>
-
-            </div>
-
-            <div className="memory-info">
-
-              <small>PASKIBRA EXPERIENCE</small>
-
-              <h2>Definition of Precision</h2>
-
-              <p>
-                Moments of togetherness and discipline in drill activities and character building.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          {/* 03 — SERTIFIKAT */}
-
-          <article className="memory-card">
-
-            <div className="memory-image certificate-memory">
-
-              <img
-                src="/images/sertifikat2.jpeg"
-                alt="Sertifikat prestasi"
-              />
-
-              <span>ACHIEVEMENT</span>
-
-            </div>
-
-            <div className="memory-info">
-
-              <small>COMPETITION 2026</small>
-
-              <h2>Proof of Dedication</h2>
-
-              <p>
-                Certificate of recognition for achievements in
-                LPBB competitions and competitive experiences.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          {/* 04 — MENDAKI */}
-
-          <article className="memory-card">
-
-            <div className="memory-image">
-
-              <img
-                src="/images/bukitcendono.jpeg"
-                alt="Mendaki Bukit Cendono"
-              />
-
-              <span>EXPEDITION</span>
-
-            </div>
-
-            <div className="memory-info">
-
-              <small>NATURE & HORIZON</small>
-
-              <h2>Space for Reflection</h2>
-
-              <p>
-                Enjoying the journey, nature, and challenges to
-                discover new perspectives beyond routine.
-              </p>
-
-            </div>
-
-          </article>
-
+                <p>{memory.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
-
       </section>
-
 
       {/* =========================
           05 — LET'S CONNECT
       ========================= */}
 
       <section className="journey-section connect-section">
-
         <div className="connect-content">
-
           <div>
-
             <div className="journey-label">
               <span>05</span>
               <i></i>
@@ -348,33 +233,27 @@ export default function Journey() {
 
             <p className="connect-description">
               Open to collaborating on modern frontend projects,
-              exploring interactive design, discussing student leadership,
-              and other digital synergies.
+              exploring interactive design, discussing student
+              leadership, and other digital synergies.
             </p>
-
 
             {/* CONTACT DETAILS */}
 
             <div className="contact-details">
-
               {/* EMAIL */}
 
               <div className="email-contact">
-
                 <small>DIRECT EMAIL</small>
 
                 <a href="mailto:abyansudjatmiko00@gmail.com">
                   abyansudjatmiko00@gmail.com
                   <span>↗</span>
                 </a>
-
               </div>
-
 
               {/* INSTAGRAM */}
 
               <div className="instagram-contact">
-
                 <small>INSTAGRAM</small>
 
                 <a
@@ -385,123 +264,116 @@ export default function Journey() {
                   @bian.rxv
                   <span>↗</span>
                 </a>
-
               </div>
-
             </div>
-
           </div>
 
-
           {/* =========================
-    PRIMARY CHANNELS
-========================= */}
+              PRIMARY CHANNELS
+          ========================= */}
 
-<div className="channels-card">
+          <div className="channels-card">
+            <div className="channels-header">
+              <span>PRIMARY CHANNELS</span>
+              <i></i>
+            </div>
 
-  <div className="channels-header">
-    <span>PRIMARY CHANNELS</span>
-    <i></i>
-  </div>
+            {/* EMAIL */}
 
-  {/* EMAIL */}
-  <a
-    href="mailto:abyansudjatmiko00@gmail.com"
-    className="channel"
-  >
-    <span className="channel-icon">✉</span>
+            <a
+              href="mailto:abyansudjatmiko00@gmail.com"
+              className="channel"
+            >
+              <span className="channel-icon">✉</span>
 
-    <span className="channel-name">
-      SEND ME AN EMAIL
-    </span>
+              <span className="channel-name">
+                SEND ME AN EMAIL
+              </span>
 
-    <strong className="channel-action">
-      MESSAGE →
-    </strong>
-  </a>
+              <strong className="channel-action">
+                MESSAGE →
+              </strong>
+            </a>
 
-  {/* INSTAGRAM */}
-  <a
-    href="https://instagram.com/bian.rxv"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="channel"
-  >
-    <span className="channel-icon">◎</span>
+            {/* INSTAGRAM */}
 
-    <span className="channel-name">
-      INSTAGRAM
-    </span>
+            <a
+              href="https://instagram.com/bian.rxv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="channel"
+            >
+              <span className="channel-icon">◎</span>
 
-    <strong className="channel-action">
-      VISIT PROFILE →
-    </strong>
-  </a>
+              <span className="channel-name">
+                INSTAGRAM
+              </span>
 
-  {/* TIKTOK */}
-  <a
-    href="https://www.tiktok.com/@bian.rxv"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="channel"
-  >
-    <span className="channel-icon">♪</span>
+              <strong className="channel-action">
+                VISIT PROFILE →
+              </strong>
+            </a>
 
-    <span className="channel-name">
-      TIKTOK
-    </span>
+            {/* TIKTOK */}
 
-    <strong className="channel-action">
-      VISIT PROFILE →
-    </strong>
-  </a>
+            <a
+              href="https://www.tiktok.com/@bian.rxv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="channel"
+            >
+              <span className="channel-icon">♪</span>
 
-  {/* GITHUB */}
-  <div className="channel disabled">
-    <span className="channel-icon">&lt;&gt;</span>
+              <span className="channel-name">
+                TIKTOK
+              </span>
 
-    <span className="channel-name">
-      GITHUB ARCHIVE
-    </span>
+              <strong className="channel-action">
+                VISIT PROFILE →
+              </strong>
+            </a>
 
-    <strong className="channel-action">
-      COMING SOON
-    </strong>
-  </div>
+            {/* GITHUB */}
 
-  {/* LINKEDIN */}
-  <div className="channel disabled">
-    <span className="channel-icon">□</span>
+            <div className="channel disabled">
+              <span className="channel-icon">&lt;&gt;</span>
 
-    <span className="channel-name">
-      LINKEDIN PROFILE
-    </span>
+              <span className="channel-name">
+                GITHUB ARCHIVE
+              </span>
 
-    <strong className="channel-action">
-      COMING SOON
-    </strong>
-  </div>
+              <strong className="channel-action">
+                COMING SOON
+              </strong>
+            </div>
 
-  <p className="response-time">
-    OPEN FOR CREATIVE COLLABORATION & DIGITAL PROJECTS.
-  </p>
+            {/* LINKEDIN */}
 
-</div>
+            <div className="channel disabled">
+              <span className="channel-icon">□</span>
 
+              <span className="channel-name">
+                LINKEDIN PROFILE
+              </span>
 
+              <strong className="channel-action">
+                COMING SOON
+              </strong>
+            </div>
+
+            <p className="response-time">
+              OPEN FOR CREATIVE COLLABORATION & DIGITAL PROJECTS.
+            </p>
+          </div>
         </div>
-
       </section>
-
 
       {/* =========================
           BOTTOM INFO
       ========================= */}
 
       <div className="journey-bottom-bar">
-
         <div>
-
           <strong>ABYANNZ.</strong>
 
           <span>•</span>
@@ -515,23 +387,15 @@ export default function Journey() {
           <span>
             SMK Negeri 1 Pasuruan
           </span>
-
         </div>
 
-
-        <div className="journey-page-number">
-
-        </div>
-
+        <div className="journey-page-number"></div>
       </div>
-
 
       {/* FOOTER */}
 
       <footer className="journey-footer">
-
         <div>
-
           <strong>
             MUHAMMAD ABYAN SUDJATMIKO
           </strong>
@@ -541,16 +405,12 @@ export default function Journey() {
           <span>
             Web Developer & Creative Technologist
           </span>
-
         </div>
-
 
         <div>
           © 2026 ABYANNZ. ALL RIGHTS RESERVED.
         </div>
-
       </footer>
-
     </main>
   );
 }
