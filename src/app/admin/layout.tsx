@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
+
 import { createSupabaseServerClient } from "@/lib/supabase-server";
+import AdminNavigation from "@/components/AdminNavigation";
 
 async function logoutAction() {
   "use server";
@@ -46,14 +48,7 @@ export default async function AdminLayout({
             </Link>
 
             {/* Navigation */}
-            <nav className="hidden items-center gap-1 md:flex">
-              <Link
-                href="/admin/proyek"
-                className="rounded-full bg-slate-950 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-slate-700"
-              >
-                Projects
-              </Link>
-            </nav>
+            <AdminNavigation />
           </div>
 
           {/* Right Side */}
