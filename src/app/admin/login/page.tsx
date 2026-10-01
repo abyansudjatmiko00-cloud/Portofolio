@@ -18,7 +18,7 @@ async function loginAction(formData: FormData) {
     redirect("/admin/login?error=Kredensial+tidak+valid");
   }
 
-  redirect("/admin/proyek");
+  redirect("/admin/journey");
 }
 
 export default async function AdminLoginPage({
@@ -29,10 +29,10 @@ export default async function AdminLoginPage({
   const params = await searchParams;
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 flex items-center justify-center px-6 relative overflow-hidden">
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 text-slate-900">
       {/* Background Grid */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           backgroundImage:
             "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
@@ -44,7 +44,7 @@ export default async function AdminLoginPage({
       <div className="relative z-10 w-full max-w-md">
         {/* Brand */}
         <div className="mb-8">
-          <p className="text-xs tracking-[0.25em] uppercase text-slate-400 mb-3">
+          <p className="mb-3 text-xs uppercase tracking-[0.25em] text-slate-400">
             Abyannz. / Admin
           </p>
 
@@ -58,7 +58,7 @@ export default async function AdminLoginPage({
         </div>
 
         {/* Card */}
-        <div className="bg-white/95 backdrop-blur-sm border border-slate-200 rounded-2xl p-7 shadow-xl shadow-slate-200/50">
+        <div className="rounded-2xl border border-slate-200 bg-white/95 p-7 shadow-xl shadow-slate-200/50 backdrop-blur-sm">
           {params.error && (
             <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
               <p className="text-sm text-red-600">
@@ -71,7 +71,7 @@ export default async function AdminLoginPage({
             <div>
               <label
                 htmlFor="email"
-                className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2"
+                className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500"
               >
                 Email
               </label>
@@ -89,7 +89,7 @@ export default async function AdminLoginPage({
             <div>
               <label
                 htmlFor="password"
-                className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2"
+                className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500"
               >
                 Password
               </label>
