@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import Link from "next/link";
@@ -223,7 +224,6 @@ export default async function AdminJourneyPage({
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-950">
-
       {/* BACKGROUND GRID */}
 
       <div
@@ -242,15 +242,11 @@ export default async function AdminJourneyPage({
       )}
 
       <div className="relative z-10 space-y-12">
-
         {/* HEADER */}
 
         <section className="border-b border-slate-200 pb-8">
-
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-
             <div>
-
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
                 Abyannz. / Admin / Journey
               </p>
@@ -264,11 +260,9 @@ export default async function AdminJourneyPage({
                 experiences, and personal memories from one
                 administration page.
               </p>
-
             </div>
 
             <div className="border-l border-slate-200 pl-6 md:text-right">
-
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
                 DATABASE
               </p>
@@ -280,22 +274,15 @@ export default async function AdminJourneyPage({
               <p className="mt-1 text-xs text-emerald-600">
                 ● Connected
               </p>
-
             </div>
-
           </div>
-
         </section>
-
 
         {/* JOURNEY TIMELINE */}
 
         <section>
-
           <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                 01 / Timeline
               </p>
@@ -307,22 +294,17 @@ export default async function AdminJourneyPage({
               <p className="mt-2 text-sm text-slate-500">
                 Manage the chronological stages of your journey.
               </p>
-
             </div>
 
             <span className="font-mono text-xs text-slate-400">
               {journey?.length ?? 0} ENTRIES
             </span>
-
           </div>
-
 
           {/* ADD JOURNEY */}
 
           <div className="mb-8 border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-200/30 backdrop-blur-sm">
-
             <div className="mb-6 border-b border-slate-200 pb-5">
-
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
                 Add New Journey
               </p>
@@ -330,18 +312,14 @@ export default async function AdminJourneyPage({
               <h3 className="mt-1 text-xl font-bold text-slate-900">
                 Create Timeline Entry
               </h3>
-
             </div>
 
             <form
               action={tambahJourneyAction}
               className="space-y-6"
             >
-
               <div className="grid gap-6 md:grid-cols-2">
-
                 <div>
-
                   <label
                     htmlFor="journey-year"
                     className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -357,11 +335,9 @@ export default async function AdminJourneyPage({
                     required
                     className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
                   />
-
                 </div>
 
                 <div>
-
                   <label
                     htmlFor="journey-type"
                     className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -377,13 +353,10 @@ export default async function AdminJourneyPage({
                     required
                     className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
                   />
-
                 </div>
-
               </div>
 
               <div>
-
                 <label
                   htmlFor="journey-title"
                   className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -399,11 +372,9 @@ export default async function AdminJourneyPage({
                   required
                   className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-lg font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
                 />
-
               </div>
 
               <div>
-
                 <label
                   htmlFor="journey-description"
                   className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -419,7 +390,6 @@ export default async function AdminJourneyPage({
                   required
                   className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm leading-6 text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-slate-900 focus:bg-white focus:ring-4 focus:ring-slate-900/5"
                 />
-
               </div>
 
               <button
@@ -431,37 +401,27 @@ export default async function AdminJourneyPage({
                 <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
-
               </button>
-
             </form>
-
           </div>
-
 
           {/* JOURNEY LIST */}
 
           <div className="space-y-4">
-
             {journey && journey.length > 0 ? (
               journey.map((item, index) => (
                 <article
                   key={item.id}
                   className="border border-slate-200 bg-white/90 p-5 shadow-sm transition-all hover:shadow-lg"
                 >
-
                   <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-
                     <div className="flex min-w-0 items-start gap-5">
-
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 font-mono text-xs font-bold text-slate-500">
                         {String(index + 1).padStart(2, "0")}
                       </div>
 
                       <div className="min-w-0">
-
                         <div className="flex flex-wrap items-center gap-3">
-
                           <span className="rounded-full bg-slate-950 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
                             {item.year}
                           </span>
@@ -469,7 +429,6 @@ export default async function AdminJourneyPage({
                           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                             {item.type}
                           </span>
-
                         </div>
 
                         <h3 className="mt-3 text-xl font-bold text-slate-950">
@@ -479,13 +438,10 @@ export default async function AdminJourneyPage({
                         <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
                           {item.description}
                         </p>
-
                       </div>
-
                     </div>
 
                     <div className="flex shrink-0 gap-2 md:ml-6">
-
                       <Link
                         href={`/admin/journey/edit/${item.id}`}
                         className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50"
@@ -499,16 +455,12 @@ export default async function AdminJourneyPage({
                       >
                         Delete
                       </Link>
-
                     </div>
-
                   </div>
-
                 </article>
               ))
             ) : (
               <div className="border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
-
                 <p className="text-sm font-semibold text-slate-600">
                   No Journey entries found.
                 </p>
@@ -516,23 +468,16 @@ export default async function AdminJourneyPage({
                 <p className="mt-1 text-xs text-slate-400">
                   Add your first Journey entry above.
                 </p>
-
               </div>
             )}
-
           </div>
-
         </section>
-
 
         {/* MEMORIES */}
 
         <section className="border-t border-slate-200 pt-12">
-
           <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                 02 / Memories
               </p>
@@ -545,22 +490,17 @@ export default async function AdminJourneyPage({
                 Manage the photos, achievements, experiences,
                 and memories shown on your Journey page.
               </p>
-
             </div>
 
             <span className="font-mono text-xs text-slate-400">
               {memories?.length ?? 0} ENTRIES
             </span>
-
           </div>
-
 
           {/* ADD MEMORY */}
 
           <div className="mb-8 border border-slate-200 bg-white/90 p-6 shadow-xl shadow-slate-200/30 backdrop-blur-sm">
-
             <div className="mb-6 border-b border-slate-200 pb-5">
-
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
                 Add New Memory
               </p>
@@ -568,7 +508,6 @@ export default async function AdminJourneyPage({
               <h3 className="mt-1 text-xl font-bold text-slate-900">
                 Create Memory Entry
               </h3>
-
             </div>
 
             <form
@@ -576,11 +515,8 @@ export default async function AdminJourneyPage({
               encType="multipart/form-data"
               className="space-y-6"
             >
-
               <div className="grid gap-6 md:grid-cols-2">
-
                 <div>
-
                   <label
                     htmlFor="memory-category"
                     className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -596,11 +532,9 @@ export default async function AdminJourneyPage({
                     required
                     className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
                   />
-
                 </div>
 
                 <div>
-
                   <label
                     htmlFor="memory-label"
                     className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -616,13 +550,10 @@ export default async function AdminJourneyPage({
                     required
                     className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-sm font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
                   />
-
                 </div>
-
               </div>
 
               <div>
-
                 <label
                   htmlFor="memory-title"
                   className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -638,11 +569,9 @@ export default async function AdminJourneyPage({
                   required
                   className="w-full border-0 border-b-2 border-slate-200 bg-transparent px-0 py-3 text-lg font-semibold text-slate-900 outline-none transition-colors placeholder:text-slate-300 focus:border-slate-900"
                 />
-
               </div>
 
               <div>
-
                 <label
                   htmlFor="memory-description"
                   className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
@@ -658,19 +587,14 @@ export default async function AdminJourneyPage({
                   required
                   className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm leading-6 text-slate-900 outline-none transition-all placeholder:text-slate-300 focus:border-slate-900 focus:bg-white focus:ring-4 focus:ring-slate-900/5"
                 />
-
               </div>
 
               <div>
-
-                <label
-                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400"
-                >
+                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                   05 / Memory Image
                 </label>
 
                 <ImageUploadField required />
-
               </div>
 
               <button
@@ -682,35 +606,29 @@ export default async function AdminJourneyPage({
                 <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
-
               </button>
-
             </form>
-
           </div>
-
 
           {/* MEMORY LIST */}
 
           <div className="grid gap-5 md:grid-cols-2">
-
             {memories && memories.length > 0 ? (
               memories.map((memory, index) => (
                 <article
                   key={memory.id}
                   className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl"
                 >
-
                   <div className="relative h-56 overflow-hidden bg-slate-100">
-
-                    <img
+                    <Image
                       src={memory.image}
-                      alt={memory.title}
-                      className="h-full w-full object-cover"
+                      alt={`${memory.title} memory`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                     />
 
                     <div className="absolute left-4 top-4 flex items-center gap-2">
-
                       <span className="rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-900 shadow-lg">
                         {String(index + 1).padStart(2, "0")}
                       </span>
@@ -718,13 +636,10 @@ export default async function AdminJourneyPage({
                       <span className="rounded-full bg-slate-950 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg">
                         {memory.category}
                       </span>
-
                     </div>
-
                   </div>
 
                   <div className="p-5">
-
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                       {memory.label}
                     </p>
@@ -738,7 +653,6 @@ export default async function AdminJourneyPage({
                     </p>
 
                     <div className="mt-5 flex gap-2 border-t border-slate-100 pt-5">
-
                       <Link
                         href={`/admin/journey/memory/edit/${memory.id}`}
                         className="flex-1 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-center text-xs font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50"
@@ -752,16 +666,12 @@ export default async function AdminJourneyPage({
                       >
                         Delete
                       </Link>
-
                     </div>
-
                   </div>
-
                 </article>
               ))
             ) : (
               <div className="col-span-full border border-dashed border-slate-300 bg-slate-50 p-10 text-center">
-
                 <p className="text-sm font-semibold text-slate-600">
                   No Memories found.
                 </p>
@@ -769,28 +679,20 @@ export default async function AdminJourneyPage({
                 <p className="mt-1 text-xs text-slate-400">
                   Add your first Memory above.
                 </p>
-
               </div>
             )}
-
           </div>
-
         </section>
-
 
         {/* BOTTOM NOTE */}
 
         <div className="border-t border-slate-200 py-6">
-
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-slate-400">
             Journey and Memory data are synchronized with
             Supabase and the public portfolio.
           </p>
-
         </div>
-
       </div>
-
     </div>
   );
 }

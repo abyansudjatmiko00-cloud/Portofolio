@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 export default function About() {
@@ -10,7 +11,6 @@ export default function About() {
       ========================= */}
 
       <section className="about-page">
-
         {/* =========================
             ABOUT HEADER
         ========================= */}
@@ -21,75 +21,65 @@ export default function About() {
             <span className="about-dot"></span>
             ABOUT ME
           </div>
-
         </div>
-
 
         {/* =========================
             ABOUT MAIN
         ========================= */}
 
         <div className="about-main">
-
           {/* =========================
               LEFT IMAGE
           ========================= */}
 
           <div className="about-visual">
-
             <div className="about-photo">
-
               <div className="about-photo-tape"></div>
 
-              <img
+              <Image
                 src="/images/preman.jpeg"
                 alt="About Abyan"
+                width={1200}
+                height={1600}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="h-auto w-full"
               />
 
               <div className="about-photo-caption">
-                <span>
-                  PLATE NO. 04 — FLIGHT & HORIZON
-                </span>
+                <span>PLATE NO. 04 — FLIGHT & HORIZON</span>
 
-                <span>
-                  PASURUAN, ID
-                </span>
+                <span>PASURUAN, ID</span>
               </div>
-
             </div>
-
           </div>
-
 
           {/* =========================
               RIGHT CONTENT
           ========================= */}
 
           <div className="about-details">
-
             <h1>
               A little bit
               <br />
               <em>about me.</em>
             </h1>
 
-
             {/* =========================
                 DESCRIPTION
             ========================= */}
 
             <div className="about-description">
-
               <p>
-                I am a student interested in web development and enjoy creating modern, simple, and user-friendly web interfaces.
+                I am a student interested in web development and enjoy creating
+                modern, simple, and user-friendly web interfaces.
               </p>
 
               <p>
-                I am interested in programming because I can turn ideas into websites or applications that others can use. I find beauty in clean code and precise user interface structures.
+                I am interested in programming because I can turn ideas into
+                websites or applications that others can use. I find beauty in
+                clean code and precise user interface structures.
               </p>
-
             </div>
-
 
             {/* =========================
                 SIGNATURE
@@ -98,87 +88,60 @@ export default function About() {
             <div className="about-signature">
               <span>Abyan</span>
 
-              <small>
-                ↗ CREATIVE AUTOGRAPH
-              </small>
+              <small>↗ CREATIVE AUTOGRAPH</small>
             </div>
-
 
             {/* =========================
                 PROFILE DOSSIER
             ========================= */}
 
             <div className="profile-dossier">
-
               <div className="dossier-header">
+                <strong>PROFILE DOSSIER</strong>
 
-                <strong>
-                  PROFILE DOSSIER
-                </strong>
-
-                <span>
-                  INDEX / 2025
-                </span>
-
+                <span>INDEX / 2025</span>
               </div>
 
-
               <div className="dossier-grid">
-
                 {/* NAME */}
 
                 <div className="dossier-item">
                   <small>NAME</small>
 
-                  <strong>
-                    Muhammad Abyan Sudjatmiko
-                  </strong>
+                  <strong>Muhammad Abyan Sudjatmiko</strong>
                 </div>
-
 
                 {/* NICKNAME */}
 
                 <div className="dossier-item">
                   <small>NICKNAME</small>
 
-                  <strong>
-                    Abyan ·
-                  </strong>
+                  <strong>Abyan ·</strong>
                 </div>
-
 
                 {/* ROLE */}
 
                 <div className="dossier-item">
                   <small>ROLE</small>
 
-                  <strong className="blue-text">
-                    Web Developer
-                  </strong>
+                  <strong className="blue-text">Web Developer</strong>
                 </div>
-
 
                 {/* EDUCATION */}
 
                 <div className="dossier-item">
                   <small>EDUCATION</small>
 
-                  <strong>
-                    SMK Negeri 1 Pasuruan
-                  </strong>
+                  <strong>SMK Negeri 1 Pasuruan</strong>
                 </div>
-
 
                 {/* MAJOR */}
 
                 <div className="dossier-item">
                   <small>MAJOR</small>
 
-                  <strong>
-                    Rekayasa Perangkat Lunak
-                  </strong>
+                  <strong>Rekayasa Perangkat Lunak</strong>
                 </div>
-
 
                 {/* FOCUS */}
 
@@ -191,15 +154,10 @@ export default function About() {
                     <span>Clean Code</span>
                   </div>
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
 
         {/* =====================================================
             MOVING MARQUEE
@@ -208,9 +166,7 @@ export default function About() {
         ===================================================== */}
 
         <div className="about-marquee">
-
           <div className="about-marquee-track">
-
             <span>WEB DEVELOPER</span>
             <i>✦</i>
 
@@ -228,7 +184,6 @@ export default function About() {
 
             <span>ALWAYS LEARNING</span>
             <i>✦</i>
-
 
             {/* DUPLIKAT UNTUK LOOP */}
 
@@ -250,7 +205,6 @@ export default function About() {
             <span>ALWAYS LEARNING</span>
             <i>✦</i>
 
-
             {/* DUPLIKAT KEDUA AGAR TIDAK KOSONG SAAT BERJALAN */}
 
             <span>WEB DEVELOPER</span>
@@ -270,39 +224,25 @@ export default function About() {
 
             <span>ALWAYS LEARNING</span>
             <i>✦</i>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* =========================
           FOOTER
       ========================= */}
 
       <footer className="about-footer">
-
         <div>
-          <strong>
-            MUHAMMAD ABYAN SUDJATMIKO
-          </strong>
+          <strong>MUHAMMAD ABYAN SUDJATMIKO</strong>
 
           <span>•</span>
 
-          <span>
-            Web Developer & Creative Technologist
-          </span>
+          <span>Web Developer & Creative Technologist</span>
         </div>
 
-
-        <div>
-          © 2026 ABYANNZ. ALL RIGHTS RESERVED.
-        </div>
-
+        <div>© 2026 ABYANNZ. ALL RIGHTS RESERVED.</div>
       </footer>
-
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabase";
@@ -107,9 +108,12 @@ export default async function Projects() {
               >
                 {/* IMAGE */}
                 <div className="project-image">
-                  <img
+                  <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} project preview`}
+                    width={1600}
+                    height={900}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
 
                   <span className="project-image-label">

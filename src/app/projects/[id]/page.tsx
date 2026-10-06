@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
 import { proyek } from "@/data/proyek";
 import Navbar from "@/components/Navbar";
 
@@ -7,10 +10,44 @@ interface ProjectDetailProps {
   params: Promise<{ id: string }>;
 }
 
+export async function generateMetadata({
+  params,
+}: ProjectDetailProps): Promise<Metadata> {
+  const { id } = await params;
+
+  const project = proyek.find((item) => item.id === Number(id));
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      description: "The requested project could not be found.",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — Abyannz.`,
+        },
+      ],
+      type: "article",
+    },
+  };
+}
+
 export default async function ProjectDetail({
   params,
 }: ProjectDetailProps) {
   const { id } = await params;
+
   const project = proyek.find((item) => item.id === Number(id));
 
   if (!project) {
@@ -86,16 +123,21 @@ export default async function ProjectDetail({
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
                   <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
                 </div>
+
                 <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
                   {project.title} / Preview
                 </span>
+
                 <span className="text-xs text-slate-400">↗</span>
               </div>
 
               <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
-                <img
+                <Image
                   src={project.image}
-                  alt={`Preview ${project.title}`}
+                  alt={`Preview of ${project.title} project`}
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
                   className="block h-auto w-full object-cover"
                 />
               </div>
@@ -109,7 +151,9 @@ export default async function ProjectDetail({
                 <span className="text-xs font-bold tracking-[0.2em] text-sky-500">
                   01
                 </span>
+
                 <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
                   Project overview
                 </span>
@@ -128,14 +172,17 @@ export default async function ProjectDetail({
                   <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-sky-500">
                     Project type
                   </p>
+
                   <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {project.category}
                   </p>
                 </div>
+
                 <div>
                   <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-sky-500">
                     Project focus
                   </p>
+
                   <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                     User experience, structure, and practical functionality
                   </p>
@@ -148,6 +195,7 @@ export default async function ProjectDetail({
                 <span className="text-xs font-bold tracking-[0.2em] text-sky-500">
                   02
                 </span>
+
                 <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
               </div>
 
@@ -174,6 +222,7 @@ export default async function ProjectDetail({
                   className="group flex items-center justify-between rounded-full bg-sky-500 px-5 py-4 text-sm font-bold text-white transition hover:bg-sky-600"
                 >
                   <span>Visit live website</span>
+
                   <span className="transition-transform group-hover:translate-x-1">
                     ↗
                   </span>
@@ -191,8 +240,10 @@ export default async function ProjectDetail({
               <span className="transition-transform group-hover:-translate-x-1">
                 ←
               </span>
+
               <span>All projects</span>
             </Link>
+
             <span className="text-xs uppercase tracking-[0.2em] text-slate-400">
               Abyannz. / Portfolio
             </span>

@@ -1,7 +1,8 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="hero">
-
       {/* BACKGROUND DECORATION */}
       <div className="hero-big-a">A</div>
 
@@ -14,7 +15,6 @@ export default function Hero() {
 
       {/* LEFT CONTENT */}
       <div className="hero-content">
-
         <div className="hero-topline">
           <span className="hero-topline-dot"></span>
           <span className="hero-topline-main">WELCOME TO MY</span>
@@ -30,9 +30,7 @@ export default function Hero() {
         </h1>
 
         {/* SCRIPT — CUMA SATU */}
-        <div className="hero-script">
-          Web Developer
-        </div>
+        <div className="hero-script">Web Developer</div>
 
         <div className="hero-role">
           <span></span>
@@ -40,7 +38,9 @@ export default function Hero() {
         </div>
 
         <p className="hero-description">
-          I am a Software Engineering student interested in web development, UI/UX, and modern technologies. I build digital spaces that balance structural precision with visual sensitivity.
+          I am a Software Engineering student interested in web development,
+          UI/UX, and modern technologies. I build digital spaces that balance
+          structural precision with visual sensitivity.
         </p>
 
         <div className="hero-buttons">
@@ -54,9 +54,7 @@ export default function Hero() {
         </div>
 
         <div className="field-notes">
-          <div className="field-notes-title">
-            ↗ FIELD NOTES
-          </div>
+          <div className="field-notes-title">↗ FIELD NOTES</div>
 
           <p>
             “still learning.
@@ -66,26 +64,22 @@ export default function Hero() {
             still finding my way.”
           </p>
         </div>
-
       </div>
 
       {/* RIGHT PORTRAIT */}
       <div className="hero-image">
-
         <div className="portrait-frame">
+          <div className="portrait-label">FIG. 01 — ARCHIVE 2025</div>
 
-          <div className="portrait-label">
-            FIG. 01 — ARCHIVE 2025
-          </div>
-
-          <img
+          <Image
             src="/images/abkece.jpeg"
             alt="Muhammad Abyan Sudjatmiko"
+            width={1200}
+            height={1600}
             className="portrait"
           />
 
           <div className="image-info">
-
             <div>
               <small>SUBJECT</small>
               <strong>M. Abyan Sudjatmiko</strong>
@@ -95,9 +89,7 @@ export default function Hero() {
               <small>FOCUS</small>
               <strong>Web Developer</strong>
             </div>
-
           </div>
-
         </div>
 
         <div className="image-meta">
@@ -112,14 +104,10 @@ export default function Hero() {
           <br />
           Web
         </div>
-
       </div>
 
       {/* SCROLL */}
-      <div className="scroll-explore">
-        ↓ &nbsp; SCROLL TO EXPLORE
-      </div>
-
+      <div className="scroll-explore">↓ &nbsp; SCROLL TO EXPLORE</div>
     </section>
   );
 }

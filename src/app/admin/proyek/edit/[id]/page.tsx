@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
@@ -55,17 +56,21 @@ async function updateProyekAction(
     const fileExtension =
       imageFile.name.split(".").pop() || "jpg";
 
-    const fileName = `${crypto.randomUUID()}.${fileExtension}`;
-    const filePath = `projects/${fileName}`;
+    const fileName =
+      `${crypto.randomUUID()}.${fileExtension}`;
+
+    const filePath =
+      `projects/${fileName}`;
 
     // ================= UPLOAD NEW IMAGE =================
 
-    const { error: uploadError } = await supabase.storage
-      .from("project-images")
-      .upload(filePath, imageFile, {
-        contentType: imageFile.type,
-        upsert: false,
-      });
+    const { error: uploadError } =
+      await supabase.storage
+        .from("project-images")
+        .upload(filePath, imageFile, {
+          contentType: imageFile.type,
+          upsert: false,
+        });
 
     if (uploadError) {
       console.error(
@@ -80,9 +85,10 @@ async function updateProyekAction(
 
     // ================= GET NEW PUBLIC URL =================
 
-    const { data: publicUrlData } = supabase.storage
-      .from("project-images")
-      .getPublicUrl(filePath);
+    const { data: publicUrlData } =
+      supabase.storage
+        .from("project-images")
+        .getPublicUrl(filePath);
 
     imageUrl = publicUrlData.publicUrl;
 
@@ -101,11 +107,12 @@ async function updateProyekAction(
           oldImageUrl.pathname.indexOf(marker);
 
         if (markerIndex !== -1) {
-          const oldFilePath = decodeURIComponent(
-            oldImageUrl.pathname.slice(
-              markerIndex + marker.length
-            )
-          );
+          const oldFilePath =
+            decodeURIComponent(
+              oldImageUrl.pathname.slice(
+                markerIndex + marker.length
+              )
+            );
 
           if (oldFilePath) {
             const { error: removeError } =
@@ -179,7 +186,8 @@ export default async function EditProyekPage({
     notFound();
   }
 
-  const supabase = await createSupabaseServerClient();
+  const supabase =
+    await createSupabaseServerClient();
 
   // ================= GET PROJECT =================
 
@@ -194,14 +202,17 @@ export default async function EditProyekPage({
   }
 
   const updateAction =
-    updateProyekAction.bind(null, projectId);
+    updateProyekAction.bind(
+      null,
+      projectId
+    );
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-900">
       {/* ================= BACKGROUND GRID ================= */}
 
       <div
-        className="fixed inset-0 pointer-events-none opacity-40"
+        className="pointer-events-none fixed inset-0 opacity-40"
         style={{
           backgroundImage:
             "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
@@ -406,11 +417,15 @@ export default async function EditProyekPage({
                   </div>
 
                   <div className="p-4">
-                    <img
-                      src={proyek.image}
-                      alt={proyek.title}
-                      className="h-48 w-full rounded-xl object-cover"
-                    />
+                    <div className="relative h-48 w-full overflow-hidden rounded-xl">
+                      <Image
+                        src={proyek.image}
+                        alt={`${proyek.title} project preview`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
 

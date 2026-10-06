@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabase";
@@ -65,9 +66,13 @@ export default async function Archives() {
                   : ""
               }`}
             >
-              <img
+              <Image
                 src={memory.image}
-                alt={memory.title}
+                alt={`${memory.title} memory`}
+                width={1200}
+                height={900}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                className="h-auto w-full object-cover"
               />
             </div>
 

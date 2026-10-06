@@ -14,13 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abyannz.",
-  description: "Muhammad Abyan Sudjatmiko — Web Developer",
+  metadataBase: new URL("https://portofolio-abyanzz.vercel.app"),
+
+  title: {
+    default: "Abyannz. — Web Developer",
+    template: "%s | Abyannz.",
+  },
+
+  description:
+    "Muhammad Abyan Sudjatmiko — Web Developer portfolio showcasing projects, skills, and learning journey.",
 
   openGraph: {
-    title: "Abyannz.",
-    description: "Muhammad Abyan Sudjatmiko — Web Developer",
-    url: "https://portfolio-abyanzz.vercel.app",
+    title: "Abyannz. — Web Developer",
+    description:
+      "Muhammad Abyan Sudjatmiko — Web Developer portfolio showcasing projects, skills, and learning journey.",
+    url: "https://portofolio-abyanzz.vercel.app",
     siteName: "Abyannz.",
     images: [
       {
@@ -40,10 +48,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="site-background min-h-full flex flex-col">
+      <body className="site-background flex min-h-full flex-col">
         <Intro />
         {children}
-        </body>
+      </body>
     </html>
   );
 }

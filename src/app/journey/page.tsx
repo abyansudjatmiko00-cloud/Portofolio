@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabase";
 
@@ -190,9 +191,12 @@ export default async function Journey() {
                     : ""
                 }`}
               >
-                <img
+                <Image
                   src={memory.image}
-                  alt={memory.title}
+                  alt={`${memory.title} memory`}
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                 />
 
                 <span>{memory.category}</span>
