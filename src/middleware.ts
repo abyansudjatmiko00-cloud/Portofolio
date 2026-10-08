@@ -7,8 +7,8 @@ export async function middleware(request: NextRequest) {
   });
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_PUBLISHABLE_KEY!,
     {
       cookies: {
         getAll() {
@@ -28,12 +28,17 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAdminPage = request.nextUrl.pathname.startsWith("/admin");
-  const isLoginPage = request.nextUrl.pathname === "/admin/login";
+  const isAdminPage =
+    request.nextUrl.pathname.startsWith("/admin");
 
-  // Doorpass untuk halaman login admin
-  const doorpass = request.nextUrl.searchParams.get("doorpass");
-  const correctDoorpass = process.env.ADMIN_DOORPASS;
+  const isLoginPage =
+    request.nextUrl.pathname === "/admin/login";
+
+  const doorpass =
+    request.nextUrl.searchParams.get("doorpass");
+
+  const correctDoorpass =
+    process.env.ADMIN_DOORPASS;
 
   if (isLoginPage && doorpass !== correctDoorpass) {
     return new NextResponse("Access Denied", {
@@ -41,9 +46,9 @@ export async function middleware(request: NextRequest) {
     });
   }
 
-  // Proteksi halaman admin dengan Supabase Auth
   if (isAdminPage && !isLoginPage && !user) {
     const url = request.nextUrl.clone();
+
     url.pathname = "/admin/login";
     url.search = "";
 
